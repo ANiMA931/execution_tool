@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<the_name>
+    <name>小明</name>
+    <age>18</age>
+    <hobby>football</hobby>
+    <other>
+        <name>火云邪神</name>
+    </other>
+    <list>
+        <li>111</li>
+    </list>
+    <list>
+        <llis>323</llis>
+    </list>
+</the_name>

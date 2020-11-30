@@ -1,0 +1,13 @@
+external_func_file_path = ''  # 外部函数路径
+scripts_file_path = '.\external_file\script.xml'
+round_number = -1
+external_func_dom = None  # 外部函数xml的dom对象
+generation_method = ''  # 迭代方法，是否继承，True为继承，False为不继承
+global_attribute_dict = {}  # 保存全局属性递推方法的字典
+old_global_attribute_dict = {}
+global_attribute_func_ptrs = []  # 保存全局属性推进方法的函数指针
+round_method_dict = {}  # 保存轮方法的字典
+round_method = None  # 轮方法函数指针
+step_size = -1  # 仿真记录步长
+script_dict = {}  # 脚本字典
+script_func_ptrs = []  # 保存脚本函数的指针
