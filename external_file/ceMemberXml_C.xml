@@ -1,0 +1,142 @@
+<?xml version="1.0" ?><memberGeneration>
+    <memberNums>
+        <memberNum 原子-建议者成员数量="50" 原子-监控-建议者成员数量="10" 原子-监控者成员数量="100" 原子型成员数量="100" 建议-监控者数量="20" 建议者成员数量="100" 监控者成员数量="50" 集合-监控者数量="30" 集合型成员数量="100"/>
+        <memberInfos>
+            <memberInfo 成员ID="memberID-0" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-1" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-2" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-3" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-4" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-5" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-6" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-200" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-201" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-202" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-203" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-204" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-205" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-206" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-207" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-208" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-209" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-210" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-211" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-212" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+        </memberInfos>
+    </memberNums>
+    <advisors>
+        <advisor 外部函数路径="C:没定好/放在哪" 建议禀赋方差="5" 建议禀赋期望="30"/>
+        <advisorInfos>
+            <advisorInfo 建议禀赋="26.76" 建议者ID="memberID-200" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="29.60" 建议者ID="memberID-201" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="32.67" 建议者ID="memberID-202" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="32.76" 建议者ID="memberID-203" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="30.82" 建议者ID="memberID-204" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="34.38" 建议者ID="memberID-205" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="26.29" 建议者ID="memberID-206" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="31.58" 建议者ID="memberID-207" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="28.25" 建议者ID="memberID-208" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="25.62" 建议者ID="memberID-209" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="33.84" 建议者ID="memberID-210" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="28.73" 建议者ID="memberID-211" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <advisorInfo 建议禀赋="31.28" 建议者ID="memberID-212" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+        </advisorInfos>
+    </advisors>
+    <primitives>
+        <primitive 自信水平方差="0.1" 自信水平期望="confidenceExcepted" 自律水平方差="0.1" 自律水平期望="selfDisciplineExceptedValue" 自留精力方差="" 自留精力期望="" 这里的属性先慢慢想=""/>
+        <primitiveInfos>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-0" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-1" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-2" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-3" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-4" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-5" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+            <primitiveInfo 决策器ID="" 原子型成员ID="memberID-6" 影响器ID="" 执行器ID="" 监控器ID="" 联接器ID="" 自信水平="" 自律水平="" 这里的属性慢慢想="能力向量，学习率向量"/>
+        </primitiveInfos>
+    </primitives>
+    <affectors>
+        <affector 外部函数路径="????" 平均影响强度方差="0.1" 平均影响强度期望="0.4" 影响器数量="7" 连接成员数量方差="0.5" 连接成员数量期望="4"/>
+        <affectorInfos>
+            <affectorInfo 平均影响强度="0.54" 影响器ID="affectorID-0" 连接成员数量="3"/>
+            <affectorInfo 平均影响强度="0.55" 影响器ID="affectorID-1" 连接成员数量="2"/>
+            <affectorInfo 平均影响强度="0.15" 影响器ID="affectorID-2" 连接成员数量="5"/>
+            <affectorInfo 平均影响强度="0.62" 影响器ID="affectorID-3" 连接成员数量="3"/>
+            <affectorInfo 平均影响强度="0.51" 影响器ID="affectorID-4" 连接成员数量="4"/>
+            <affectorInfo 平均影响强度="0.62" 影响器ID="affectorID-5" 连接成员数量="5"/>
+            <affectorInfo 平均影响强度="0.48" 影响器ID="affectorID-6" 连接成员数量="1"/>
+        </affectorInfos>
+    </affectors>
+    <deciders>
+        <decider 决策器数量="7" 外部函数路径="??????"/>
+        <deciderInfos>
+            <deciderInfo 任务ID集合="['Task-182', 'Task-191', 'Task-99', 'Task-32', 'Task-146', 'Task-64', 'Task-137', 'Task-56', 'Task-128', 'Task-199', 'Task-119', 'Task-34', 'Task-143', 'Task-120', 'Task-164', 'Task-108']" 决策器ID="deciderID-0"/>
+            <deciderInfo 任务ID集合="['Task-37', 'Task-93', 'Task-169', 'Task-61', 'Task-12', 'Task-130', 'Task-70', 'Task-198', 'Task-127', 'Task-133', 'Task-156', 'Task-38', 'Task-152', 'Task-28', 'Task-96', 'Task-161', 'Task-2', 'Task-198', 'Task-173', 'Task-98', 'Task-59', 'Task-68', 'Task-18', 'Task-65', 'Task-136', 'Task-177', 'Task-52', 'Task-190', 'Task-44', 'Task-105', 'Task-155', 'Task-8', 'Task-45', 'Task-121', 'Task-72', 'Task-190', 'Task-60', 'Task-91', 'Task-127', 'Task-78', 'Task-109', 'Task-188', 'Task-171', 'Task-14', 'Task-82', 'Task-42', 'Task-54', 'Task-158', 'Task-103', 'Task-23', 'Task-122', 'Task-68', 'Task-74', 'Task-114', 'Task-144', 'Task-64', 'Task-172', 'Task-47', 'Task-171', 'Task-191', 'Task-15', 'Task-86', 'Task-125', 'Task-79', 'Task-93', 'Task-79', 'Task-54', 'Task-102', 'Task-110', 'Task-8', 'Task-47', 'Task-121', 'Task-114', 'Task-92', 'Task-132', 'Task-87', 'Task-76', 'Task-193', 'Task-179', 'Task-32', 'Task-162', 'Task-4', 'Task-84', 'Task-147', 'Task-105', 'Task-187', 'Task-30', 'Task-173', 'Task-132', 'Task-182', 'Task-1', 'Task-118', 'Task-0', 'Task-162', 'Task-129', 'Task-48', 'Task-72', 'Task-129', 'Task-10', 'Task-24', 'Task-19', 'Task-174', 'Task-52', 'Task-17', 'Task-131', 'Task-77', 'Task-89', 'Task-146', 'Task-126', 'Task-113', 'Task-36', 'Task-167', 'Task-170', 'Task-36', 'Task-77', 'Task-120', 'Task-26', 'Task-140', 'Task-63', 'Task-167', 'Task-27', 'Task-166', 'Task-51', 'Task-75', 'Task-152', 'Task-87', 'Task-172', 'Task-83', 'Task-189', 'Task-11', 'Task-134', 'Task-143', 'Task-46', 'Task-137', 'Task-151', 'Task-118', 'Task-176', 'Task-147']" 决策器ID="deciderID-1"/>
+            <deciderInfo 任务ID集合="['Task-116', 'Task-90']" 决策器ID="deciderID-2"/>
+            <deciderInfo 任务ID集合="['Task-78', 'Task-184', 'Task-157', 'Task-138']" 决策器ID="deciderID-3"/>
+            <deciderInfo 任务ID集合="['Task-62', 'Task-69', 'Task-142', 'Task-178', 'Task-194', 'Task-185', 'Task-150', 'Task-168', 'Task-101', 'Task-13', 'Task-156', 'Task-154', 'Task-128', 'Task-6', 'Task-96', 'Task-119', 'Task-16', 'Task-22', 'Task-107', 'Task-104', 'Task-62', 'Task-111', 'Task-145', 'Task-138', 'Task-103', 'Task-9', 'Task-50', 'Task-176', 'Task-37', 'Task-51', 'Task-144', 'Task-29', 'Task-25', 'Task-43', 'Task-22', 'Task-145', 'Task-163', 'Task-69', 'Task-179', 'Task-150', 'Task-90', 'Task-40', 'Task-46', 'Task-185', 'Task-12', 'Task-28', 'Task-41', 'Task-197', 'Task-34', 'Task-159', 'Task-38', 'Task-20', 'Task-195', 'Task-0', 'Task-139', 'Task-160', 'Task-10', 'Task-35', 'Task-125', 'Task-60', 'Task-177', 'Task-95', 'Task-31', 'Task-88', 'Task-106', 'Task-135', 'Task-98', 'Task-148', 'Task-85', 'Task-180', 'Task-57', 'Task-25', 'Task-107', 'Task-9', 'Task-57', 'Task-40', 'Task-100', 'Task-165', 'Task-86', 'Task-199', 'Task-181', 'Task-71', 'Task-117', 'Task-193', 'Task-124', 'Task-43', 'Task-11', 'Task-131', 'Task-14']" 决策器ID="deciderID-4"/>
+            <deciderInfo 任务ID集合="['Task-56', 'Task-48', 'Task-169', 'Task-13', 'Task-196', 'Task-80', 'Task-175', 'Task-76', 'Task-49', 'Task-97', 'Task-175', 'Task-140', 'Task-2', 'Task-44', 'Task-157', 'Task-194', 'Task-5', 'Task-141', 'Task-35', 'Task-163', 'Task-88', 'Task-84', 'Task-16', 'Task-168', 'Task-184', 'Task-133', 'Task-55', 'Task-73', 'Task-139', 'Task-178', 'Task-148', 'Task-18', 'Task-58', 'Task-27', 'Task-71', 'Task-1', 'Task-67', 'Task-61', 'Task-26', 'Task-21', 'Task-30', 'Task-112', 'Task-39', 'Task-123', 'Task-189', 'Task-66', 'Task-31', 'Task-149', 'Task-42', 'Task-153', 'Task-151', 'Task-126', 'Task-45', 'Task-115', 'Task-67', 'Task-85', 'Task-111', 'Task-21', 'Task-130', 'Task-81', 'Task-65', 'Task-50', 'Task-99', 'Task-89', 'Task-197', 'Task-108', 'Task-3', 'Task-95', 'Task-123', 'Task-192', 'Task-102', 'Task-113', 'Task-58', 'Task-164', 'Task-196', 'Task-94', 'Task-19', 'Task-165', 'Task-166', 'Task-33', 'Task-159', 'Task-181', 'Task-110', 'Task-158', 'Task-66', 'Task-101', 'Task-134', 'Task-170', 'Task-136', 'Task-6', 'Task-142', 'Task-94', 'Task-100', 'Task-20', 'Task-70', 'Task-112', 'Task-92', 'Task-154', 'Task-195', 'Task-33', 'Task-186', 'Task-53', 'Task-75', 'Task-39', 'Task-49', 'Task-80']" 决策器ID="deciderID-5"/>
+            <deciderInfo 任务ID集合="['Task-104', 'Task-15', 'Task-5', 'Task-141', 'Task-74', 'Task-188', 'Task-155', 'Task-174', 'Task-91', 'Task-59', 'Task-97', 'Task-83', 'Task-160', 'Task-23', 'Task-124', 'Task-161', 'Task-117', 'Task-149', 'Task-29', 'Task-115', 'Task-183', 'Task-82', 'Task-109', 'Task-73', 'Task-135', 'Task-63', 'Task-53', 'Task-180', 'Task-81', 'Task-17', 'Task-41', 'Task-3', 'Task-183', 'Task-116', 'Task-7', 'Task-55', 'Task-187', 'Task-186', 'Task-192', 'Task-4', 'Task-106', 'Task-122', 'Task-153', 'Task-7']" 决策器ID="deciderID-6"/>
+        </deciderInfos>
+    </deciders>
+    <monitors>
+        <monitor 外部函数路径="?????" 监控器数量="0" 监控强度方差="0" 监控强度期望="0"/>
+        <monitorInfos>
+            <monitorInfo/>
+        </monitorInfos>
+    </monitors>
+    <monitorMembers>
+        <monitorMember 监控强度方差="0" 监控强度期望="0" 监控禀赋方差="0" 监控禀赋期望="0"/>
+        <monitorMemberInfos>
+            <monitorMemberInfo />
+        </monitorMemberInfos>
+    </monitorMembers>
+
+    <executors>
+        <executor 外部函数路径="?????" 执行器数量="7" 突变率方差="0.00005" 突变率期望="0.0001"/>
+        <executorInfos>
+            <executorInfo 执行器ID="executorID-0" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-1" 突变率="0.003336"/>
+            <executorInfo 执行器ID="executorID-2" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-3" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-4" 突变率="0.005917"/>
+            <executorInfo 执行器ID="executorID-5" 突变率="0.003450"/>
+            <executorInfo 执行器ID="executorID-6" 突变率="0.000000"/>
+        </executorInfos>
+    </executors>
+    <connectors>
+        <connector 外部函数路径="?????" 成员数量方差="0.1" 成员数量期望="3" 联接器数量="7" 连接强度方差="0.1" 连接强度期望="0.4"/>
+        <connectorInfos>
+            <connectorInfo 平均连接强度="0.50" 联接器ID="connectorID-0" 连接成员数量="3"/>
+            <connectorInfo 平均连接强度="0.48" 联接器ID="connectorID-1" 连接成员数量="5"/>
+            <connectorInfo 平均连接强度="0.65" 联接器ID="connectorID-2" 连接成员数量="1"/>
+            <connectorInfo 平均连接强度="0.53" 联接器ID="connectorID-3" 连接成员数量="2"/>
+            <connectorInfo 平均连接强度="0.48" 联接器ID="connectorID-4" 连接成员数量="3"/>
+            <connectorInfo 平均连接强度="0.47" 联接器ID="connectorID-5" 连接成员数量="5"/>
+            <connectorInfo 平均连接强度="0.40" 联接器ID="connectorID-6" 连接成员数量="4"/>
+        </connectorInfos>
+    </connectors>
+    <connect>
+        <networkStructure ID="net-p2p" type="p2p">
+            <connectInfo from="" strength="" to=""/>
+        </networkStructure>
+        <networkStructure ID="net-p2a" type="p2a">
+            <connectInfo from="" strength="" to=""/>
+        </networkStructure>
+        <networkStructure ID="net-p2m" type="p2m">
+            <connectInfo from="" strength="" to=""/>
+        </networkStructure>
+    </connect>
+    <pattern>
+        <commonInformation ID="ptn-1" author="MA" modifyDate="2019.04" name="theFirst" remark="No" version="0.0"/>
+        <positions scale="3">
+            <position name="beginning" pID="p0" type="start" weight="0"/>
+            <position name="ending1" pID="p21" type="ending" weight="0"/>
+            <position name="ending2" pID="p22" type="ending" weight="0"/>
+        </positions>
+        <behaviors scale="2">
+            <behavior after="p21" bID="b1" before="p0" comment="给别人" weight="0"/>
+            <behavior after="p22" bID="b2" before="p0" comment="给自己" weight="0"/>
+        </behaviors>
+        <comment/>
+    </pattern>
+</memberGeneration>

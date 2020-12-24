@@ -1,1 +1,1 @@
-import networkx
+pattern=None

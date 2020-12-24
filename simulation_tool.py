@@ -13,13 +13,15 @@ import os  # 需要的部分内容
 import xml.dom.minidom  # 系统使用的xml操作类
 from xml.dom.minidom import parseString
 import external_func  # 自己编写的外部函数模块
-import members  # 自己编写的成员模  块
+import members  # 自己编写的成员模块
+import pattren
 
 from external_func.read_file import read_xml_to_module  # 单独引用一下读取模块中的总和函数
 from external_func.__scripts import read_scripts, run_script  # 单独引用一下脚本模块中读取与运行的函数
 from time import sleep  # 测试可能需要的东西
 from datetime import datetime
 from members.read_file import read_network, read_member
+from pattren.read_file import read_pattern
 from other_tools import read_xml, write_xml  # 读取与生成xml文件的方法
 from record_maker import save_member_round_record, save_global_attribute_record
 
@@ -302,6 +304,8 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             id_role_dict, member_number, p_number, c_number, a_number, m_number = format_members_id_role(member_dom)
             read_member(member_dom)
             read_network(member_dom)
+            read_pattern(member_dom)
+
             members.member_dom = member_dom
             members.member_file_path = self.members_xml_path_edit.text()
             members.member_num = member_number
@@ -347,6 +351,8 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             id_role_dict, member_number, p_number, c_number, a_number, m_number = format_members_id_role(member_dom)
             read_member(member_dom)
             read_network(member_dom)
+            read_pattern(member_dom)
+
             members.member_dom = member_dom
             members.member_file_path = self.members_xml_path_edit.text()
             members.member_num = member_number
@@ -422,7 +428,6 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
                     the_round = self.script_table_widget.item(row, col).text()
                     try:
                         # 需要判断一下在round列中的输入是不是int且不大于回合数设置
-                        int(the_round)
                         if int(the_round) < int(self.generation_Edit.text()):
                             SCRIPT.setAttribute("round", the_round)
                         else:
@@ -594,4 +599,4 @@ if __name__ == '__main__':
     window = uf_Form(globals())
     window.setWindowTitle('众智网络仿真执行工具软件')
     window.show()
-    app.exec_()
+    exit(app.exec_())

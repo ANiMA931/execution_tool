@@ -2265,7 +2265,7 @@
         </message>
     </vactor>
     <affectors>
-        <affector 外部函数名="30" 平均影响强度方差="0.1" 平均影响强度期望="0.4" 影响器数量="11" 连接成员数量方差="30" 连接成员数量期望="100"/>
+        <affector 外部函数路径="30" 平均影响强度方差="0.1" 平均影响强度期望="0.4" 影响器数量="11" 连接成员数量方差="30" 连接成员数量期望="100"/>
         <affectorInfos>
             <affectorInfo 平均影响强度="0.54" 影响器ID="affectorID-0" 连接成员数量="102"/>
             <affectorInfo 平均影响强度="0.55" 影响器ID="affectorID-1" 连接成员数量="102"/>
@@ -2300,9 +2300,7 @@
         </affectorInfos>
     </affectors>
     <deciders>
-        <decider 决策器数量="11" 外部函数名="afasgas">
-            <atribute>sdfsdfsd</atribute>
-        </decider>
+        <decider 决策器数量="11" 外部函数路径="afasgas"/>
         <deciderInfos>
             <deciderInfo 信息所属领域="areaID-6" 信息矢量="messageID211" 偏好所属领域="areaID-7" 偏好矢量="preferenceID41"
                          决策器ID="deciderID-0"/>
@@ -2367,7 +2365,7 @@
         </deciderInfos>
     </deciders>
     <monitors>
-        <monitor 外部函数名="11" 监控器数量="30" 监控强度方差="0.1" 监控强度期望="0.8"/>
+        <monitor 外部函数路径="11" 监控器数量="7" 监控强度方差="0.1" 监控强度期望="0.8"/>
         <monitorInfos>
             <monitorInfo 监控器ID="monitorID-0" 监控强度="0.63"/>
             <monitorInfo 监控器ID="monitorID-1" 监控强度="0.72"/>
@@ -2944,7 +2942,7 @@
         </monitorMemberInfos>
     </monitorMembers>
     <executors>
-        <executor 传播阈值方差="0.1" 传播阈值期望="0.4" 外部函数名="11" 执行器数量="30" 突变率方差="0.00005" 突变率期望="0.0001"/>
+        <executor 传播阈值方差="0.1" 传播阈值期望="0.4" 外部函数路径="11" 执行器数量="30" 突变率方差="0.00005" 突变率期望="0.0001"/>
         <executorInfos>
             <executorInfo 传播阈值="0.29" 信息矢量="messageID252" 偏好行为="改变连接强度" 执行器ID="executorID-0" 突变率="0.000000"/>
             <executorInfo 传播阈值="0.55" 信息矢量="messageID199" 偏好行为="群发" 执行器ID="executorID-1" 突变率="0.003336"/>
@@ -2979,7 +2977,7 @@
         </executorInfos>
     </executors>
     <connectors>
-        <connector 外部函数名="11" 成员数量方差="50" 成员数量期望="200" 联接器数量="30" 连接强度方差="0.1" 连接强度期望="0.4"/>
+        <connector 外部函数路径="11" 成员数量方差="50" 成员数量期望="200" 联接器数量="30" 连接强度方差="0.1" 连接强度期望="0.4"/>
         <connectorInfos>
             <connectorInfo 平均连接强度="0.50" 联接器ID="connectorID-0" 连接成员数量="207"/>
             <connectorInfo 平均连接强度="0.48" 联接器ID="connectorID-1" 连接成员数量="181"/>
@@ -3443,7 +3441,7 @@
         </c_deciderInfos>
     </c_deciders>
     <c_executors>
-        <c_executor 传播时间方差="0.6" 传播时间期望="11" 传播频率方差="30" 传播频率期望="0.4" 外部函数名="0.1" 执行器数量="0.1"/>
+        <c_executor 传播时间方差="0.6" 传播时间期望="11" 传播频率方差="30" 传播频率期望="0.4" 外部函数路径="0.1" 执行器数量="0.1"/>
         <c_executorInfos>
             <c_executorInfo 传播时间="3.8" 传播路径="电话传播" 传播频率="48" 执行器ID="c_executorID-0"/>
             <c_executorInfo 传播时间="5.7" 传播路径="电话传播" 传播频率="51" 执行器ID="c_executorID-1"/>
@@ -3478,7 +3476,7 @@
         </c_executorInfos>
     </c_executors>
     <convergers>
-        <converger 汇聚器数量="30" 汇聚方式="11" 外部函数名="test"/>
+        <converger 汇聚器数量="30" 汇聚方式="11" 外部函数路径="test"/>
         <convergerInfos>
             <convergerInfo 汇聚器ID="convergerID-0" 汇聚方式="求和"/>
             <convergerInfo 汇聚器ID="convergerID-1" 汇聚方式="均值"/>
@@ -3513,7 +3511,7 @@
         </convergerInfos>
     </convergers>
     <decomposers>
-        <decomposer 传播阈值方差="0.1" 传播阈值期望="0.4" 分解器数量="30" 外部函数名="11"/>
+        <decomposer 传播阈值方差="0.1" 传播阈值期望="0.4" 分解器数量="30" 外部函数路径="11"/>
         <decomposerInfos>
             <decomposerInfo 传播阈值="0.55" 信息强度="0.22" 分解器ID="decomposerID-0" 待传播信息="messageID54" 期望信息强度="0.55"/>
             <decomposerInfo 传播阈值="0.70" 信息强度="0.32" 分解器ID="decomposerID-1" 待传播信息="messageID111" 期望信息强度="0.70"/>
