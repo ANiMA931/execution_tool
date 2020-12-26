@@ -17,7 +17,7 @@ count = 0
 for the_mu, the_sigma in mu_sigma_list:
     lower, upper = the_mu - 2 * the_sigma, the_mu + 2 * the_sigma  # 截断在[μ-2σ, μ+2σ]
     X = stats.truncnorm((lower - the_mu) / the_sigma, (upper - the_mu) / the_sigma, loc=the_mu, scale=the_sigma)
-    task_matrix[count, :] = X.rvs(200)
+    task_matrix[count, :] = X.rvs(task_num)
     count += 1
 
 task_dom = read_xml("Task.xml")

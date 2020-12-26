@@ -22,7 +22,7 @@ for _ in range(len(decider_labels) - 1):
 index_.append(task_id_list.__len__() - 1)
 index_.sort()
 the_i = 0
-# 取出所有原子型成员
+# 取出所有原子型成员的决策器
 
 for decider_label, k in zip(decider_labels, range(len(index_))):
     the_j = index_[k]
