@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><memberGeneration>
     <memberNums>
-        <memberNum 原子-建议者成员数量="50" 原子-监控-建议者成员数量="10" 原子-监控者成员数量="100" 原子型成员数量="100" 建议-监控者数量="20" 建议者成员数量="100" 监控者成员数量="50" 集合-监控者数量="30" 集合型成员数量="100"/>
+        <memberNum 原子型成员数量="7" 建议者成员数量="13" 监控者成员数量="0" 集合型成员数量="0"/>
         <memberInfos>
             <memberInfo 成员ID="memberID-0" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
             <memberInfo 成员ID="memberID-1" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
@@ -90,7 +90,6 @@
             <monitorMemberInfo/>
         </monitorMemberInfos>
     </monitorMembers>
-
     <executors>
         <executor 外部函数路径="?????" 执行器数量="7" 突变率方差="0.00005" 突变率期望="0.0001"/>
         <executorInfos>

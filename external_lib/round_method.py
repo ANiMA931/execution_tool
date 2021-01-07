@@ -23,12 +23,17 @@ def p1(global_dict):
         task_dict.update({a_task.task_id: a_task})
     # 任务装配
     for a_primitive_dict in members.primitive_dict:
-        a_primitive_dict['decider']['任务ID集合']
+        true_id_list=[]
+        for ti_id in a_primitive_dict['decider']['任务ID集合']:
+            true_id_list.append(task_dict[ti_id])
+        a_primitive_dict['decider']['任务ID集合']=true_id_list
     # 走众进化流程重新分配任务
-    # 计算任务耗时
+    # 计算任务耗时dtrhthedthd
     # 计算各个成员能力向量的变化
+
     # 计算各个成员之间的连接关系变化
-    print(global_dict['attr3'])
+
+    print()
 
 
 if __name__ == '__main__':
