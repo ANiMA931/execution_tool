@@ -1,4 +1,8 @@
 import xml.dom.minidom
+import os
+import shutil
+from random import random
+
 
 def read_xml(in_path) -> xml.dom.minidom.Document:
     """
@@ -25,6 +29,33 @@ def write_xml(path, dom):
             dom.writexml(fh)
     except:
         print("Dom write error.")
+
+
+def copy_file(srcfile, target_path):  # 复制函数
+    if not os.path.isfile(srcfile):
+        print("%s not exist!" % (srcfile))
+    else:
+        file_path, file_name = os.path.split(srcfile)  # 分离文件名和路径
+        if not os.path.exists(target_path):
+            os.makedirs(target_path)  # 创建路径
+        shutil.copy(srcfile, target_path + file_name)  # 复制文件
+        print("copy %s -> %s" % (srcfile, target_path + file_name))
+
+
+def shatter_number(upper, length):
+    """
+    将一个数撕裂为一个设定长度的随机数组
+    :param upper:要被撕裂的数
+    :param length:设定被撕裂的长度
+    :return:r被撕裂的随机数列表，sum(r)随机数列表和
+    """
+    r = []
+    for i in range(length):
+        r.append(random())
+    a_s = upper / sum(r)
+    for i in range(len(r)):
+        r[i] *= a_s
+    return r, sum(r)
 
 
 def object2dict(obj):
@@ -59,14 +90,20 @@ def get_empty_dict(the_dict: dict):
             a_dict[k] = get_empty_dict(v)
     return a_dict
 
+
 def dict_to_xml_str(the_dict):
+    """
+    将字典转化为xml字符串
+    :param the_dict:
+    :return:
+    """
     the_str = ""
     for k, v in the_dict.items():
-        if v.__class__!=list:
+        if v.__class__ != list:
             the_str += "<%s>""%s""</%s>" % (k, v, k) if not isinstance(v, dict) else "<%s>""%s""</%s>" % (
-            k, dict_to_xml_str(v), k)
+                k, dict_to_xml_str(v), k)
         else:
             for one_v in v:
-                the_str+="<%s>""%s""</%s>" % (k, one_v, k) if not isinstance(one_v, dict) else "<%s>""%s""</%s>" % (
-            k, dict_to_xml_str(one_v), k)
+                the_str += "<%s>""%s""</%s>" % (k, one_v, k) if not isinstance(one_v, dict) else "<%s>""%s""</%s>" % (
+                    k, dict_to_xml_str(one_v), k)
     return the_str

@@ -38,17 +38,24 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
 
     def read_member_components(xml_dom, super_label_name, label_name, components_name, components_dict):
         components_labels = xml_dom.getElementsByTagName(super_label_name)
-        components_method_label = xml_dom.getElementsByTagName(label_name)[0]
-        for components_label in components_labels:
-            label_id = components_label.getAttribute(components_name)
-            components_dict[label_id] = {}
-            components_dict[label_id]['method'] = components_method_label.getAttribute('外部函数名')
-            label_attribute = components_label.attributes
-            for key, value in label_attribute.items():
-                try:
-                    components_dict[label_id][key] = eval(value)
-                except NameError:
-                    components_dict[label_id][key] = value
+        try:
+            components_method_label = xml_dom.getElementsByTagName(label_name)[0]
+            for components_label in components_labels:
+                label_id = components_label.getAttribute(components_name)
+                components_dict[label_id] = {}
+                components_dict[label_id]['method'] = components_method_label.getAttribute('外部函数名')
+                label_attribute = components_label.attributes
+                for key, value in label_attribute.items():
+                    try:
+                        components_dict[label_id][key] = eval(value)
+                    # except EOFError:
+                    #     components_dict[label_id][key] = value
+                    except NameError:
+                        components_dict[label_id][key] = value
+                    except EOFError:
+                        components_dict[label_id][key] = None
+        except IndexError:  # 当某个标签不存在时
+            pass
 
     # def read_affector(xml_dom_for_affector):
     #     """
@@ -197,28 +204,49 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 except NameError:
                     # a_primitives_dict[label_id].update({key: value})
                     a_primitives_dict[label_id][key] = value
-            # 配置影响器
-            a_primitives_dict[label_id]['影响器'] = affector_dict[a_primitives_dict[label_id]['影响器']]
-            # 配置决策器
-            a_primitives_dict[label_id]['决策器'] = decider_dict[a_primitives_dict[label_id]['决策器']]
-            # 配置监控器
-            a_primitives_dict[label_id]['监控器'] = monitor_dict[a_primitives_dict[label_id]['监控器']]
-            # 配置执行器
-            a_primitives_dict[label_id]['执行器'] = executor_dict[a_primitives_dict[label_id]['执行器']]
-            # 配置连接器
-            a_primitives_dict[label_id]['联接器'] = connector_dict[a_primitives_dict[label_id]['联接器']]
-            # 初始化与原子型单元的连接
-            # a_primitives_dict[label_id].update({'conn_primitive': {}})
-            a_primitives_dict[label_id]['conn_primitive'] = {}
-            # 初始化与集合型单元的连接
-            # a_primitives_dict[label_id].update({'conn_collective': {}})
-            a_primitives_dict[label_id]['conn_collective'] = {}
-            # 初始化与建议者单元的连接
-            # a_primitives_dict[label_id].update({'conn_adviser': {}})
-            a_primitives_dict[label_id]['conn_adviser'] = {}
-            # 初始化与监控者单元的连接
-            # a_primitives_dict[label_id].update({'conn_monitorMember': {}})
-            a_primitives_dict[label_id]['conn_monitorMember'] = {}
+                except SyntaxError:  # 当某一个标签属性存在但值为空时
+                    a_primitives_dict[label_id][key] = None
+            try:
+                # 配置影响器
+                a_primitives_dict[label_id]['影响器'] = affector_dict[a_primitives_dict[label_id]['影响器']]
+            except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
+                pass
+
+            try:
+                # 配置决策器
+                a_primitives_dict[label_id]['决策器'] = decider_dict[a_primitives_dict[label_id]['决策器']]
+            except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
+                pass
+
+            try:
+                # 配置监控器
+                a_primitives_dict[label_id]['监控器'] = monitor_dict[a_primitives_dict[label_id]['监控器']]
+            except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
+                pass
+
+            try:
+                # 配置执行器
+                a_primitives_dict[label_id]['执行器'] = executor_dict[a_primitives_dict[label_id]['执行器']]
+            except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
+                pass
+
+            try:
+                # 配置连接器
+                a_primitives_dict[label_id]['联接器'] = connector_dict[a_primitives_dict[label_id]['联接器']]
+            except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
+                pass
+            # # 初始化与原子型单元的连接
+            # # a_primitives_dict[label_id].update({'conn_primitive': {}})
+            # a_primitives_dict[label_id]['conn_primitive'] = {}
+            # # 初始化与集合型单元的连接
+            # # a_primitives_dict[label_id].update({'conn_collective': {}})
+            # a_primitives_dict[label_id]['conn_collective'] = {}
+            # # 初始化与建议者单元的连接
+            # # a_primitives_dict[label_id].update({'conn_adviser': {}})
+            # a_primitives_dict[label_id]['conn_adviser'] = {}
+            # # 初始化与监控者单元的连接
+            # # a_primitives_dict[label_id].update({'conn_monitorMember': {}})
+            # a_primitives_dict[label_id]['conn_monitorMember'] = {}
 
     def read_advisers(xml_dom_for_adviser):
         """
@@ -239,12 +267,14 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 except NameError:
                     # an_advisers_dict[label_id].update({key: value})
                     an_advisers_dict[label_id][key] = value
+                except EOFError:
+                    an_advisers_dict[label_id][key] = None
             # 初始化与原子型单元的连接
-            # an_advisers_dict[label_id].update({'conn_primitive': {}})
-            an_advisers_dict[label_id]['conn_primitive'] = {}
-            # 初始化与集合型单元的连接
-            # an_advisers_dict[label_id].update({'conn_collective': {}})
-            an_advisers_dict[label_id]['conn_collective'] = {}
+            # # an_advisers_dict[label_id].update({'conn_primitive': {}})
+            # an_advisers_dict[label_id]['conn_primitive'] = {}
+            # # 初始化与集合型单元的连接
+            # # an_advisers_dict[label_id].update({'conn_collective': {}})
+            # an_advisers_dict[label_id]['conn_collective'] = {}
 
         # 本段代码是为了能够将xml里的成员对象由dict变更为类对象，但是不支持中文，故暂时作罢
         #     an_advisers_dict[label_id]['__class__'] = 'Adviser'
@@ -272,12 +302,14 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 except NameError:
                     # a_monitorMembers_dict[label_id].update({key: value})
                     a_monitorMembers_dict[label_id][key] = value
-            # 初始化与原子型单元的连接
-            # a_monitorMembers_dict[label_id].update({'conn_primitive': {}})
-            a_monitorMembers_dict[label_id]['conn_primitive'] = {}
-            # 初始化与集合型单元的连接
-            # a_monitorMembers_dict[label_id].update({'conn_collective': {}})
-            a_monitorMembers_dict[label_id]['conn_collective'] = {}
+                except EOFError:
+                    a_monitorMembers_dict[label_id][key] = None
+            # # 初始化与原子型单元的连接
+            # # a_monitorMembers_dict[label_id].update({'conn_primitive': {}})
+            # a_monitorMembers_dict[label_id]['conn_primitive'] = {}
+            # # 初始化与集合型单元的连接
+            # # a_monitorMembers_dict[label_id].update({'conn_collective': {}})
+            # a_monitorMembers_dict[label_id]['conn_collective'] = {}
 
     # def read_decomposer(xml_dom_for_decomposer):
     #     """
@@ -385,32 +417,62 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 except NameError:
                     # a_collective_dict[label_id].update({key: value})
                     a_collective_dict[label_id][key] = value
-            # 配置影响器
-            a_collective_dict[label_id]['影响器'] = affector_dict[a_collective_dict[label_id]['影响器']]
-            # 配置分解器
-            a_collective_dict[label_id]['分解器'] = decomposer_dict[a_collective_dict[label_id]['分解器']]
-            # 配置汇聚器
-            a_collective_dict[label_id]['汇聚器'] = converger_dict[a_collective_dict[label_id]['汇聚器']]
-            # 配置决策器
-            a_collective_dict[label_id]['决策器'] = c_decider_dict[a_collective_dict[label_id]['决策器']]
-            # 配置执行器
-            a_collective_dict[label_id]['执行器'] = c_executor_dict[a_collective_dict[label_id]['执行器']]
-            # 配置监控器
-            a_collective_dict[label_id]['监控器'] = monitor_dict[a_collective_dict[label_id]['监控器']]
-            # 配置连接器
-            a_collective_dict[label_id]['联接器'] = connector_dict[a_collective_dict[label_id]['联接器']]
+                except EOFError:
+                    a_collective_dict[label_id][key] = None
+
+            try:
+                # 配置影响器
+                a_collective_dict[label_id]['影响器'] = affector_dict[a_collective_dict[label_id]['影响器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置分解器
+                a_collective_dict[label_id]['分解器'] = decomposer_dict[a_collective_dict[label_id]['分解器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置汇聚器
+                a_collective_dict[label_id]['汇聚器'] = converger_dict[a_collective_dict[label_id]['汇聚器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置决策器
+                a_collective_dict[label_id]['决策器'] = c_decider_dict[a_collective_dict[label_id]['决策器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置执行器
+                a_collective_dict[label_id]['执行器'] = c_executor_dict[a_collective_dict[label_id]['执行器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置监控器
+                a_collective_dict[label_id]['监控器'] = monitor_dict[a_collective_dict[label_id]['监控器']]
+            except KeyError:
+                pass
+
+            try:
+                # 配置连接器
+                a_collective_dict[label_id]['联接器'] = connector_dict[a_collective_dict[label_id]['联接器']]
+            except KeyError:
+                pass
             # 初始化与原子型单元的连接
-            # a_collective_dict[label_id].update({'conn_primitive': {}})
-            a_collective_dict[label_id]['conn_primitive'] = {}
-            # 初始化与集合型单元的连接
-            # a_collective_dict[label_id].update({'conn_collective': {}})
-            a_collective_dict[label_id]['conn_collective'] = {}
-            # 初始化与建议者单元的连接
-            # a_collective_dict[label_id].update({'conn_adviser': {}})
-            a_collective_dict[label_id]['conn_adviser'] = {}
-            # 初始化与监控者单元的连接
-            # a_collective_dict[label_id].update({'conn_monitorMember': {}})
-            a_collective_dict[label_id]['conn_monitorMember'] = {}
+            # # a_collective_dict[label_id].update({'conn_primitive': {}})
+            # a_collective_dict[label_id]['conn_primitive'] = {}
+            # # 初始化与集合型单元的连接
+            # # a_collective_dict[label_id].update({'conn_collective': {}})
+            # a_collective_dict[label_id]['conn_collective'] = {}
+            # # 初始化与建议者单元的连接
+            # # a_collective_dict[label_id].update({'conn_adviser': {}})
+            # a_collective_dict[label_id]['conn_adviser'] = {}
+            # # 初始化与监控者单元的连接
+            # # a_collective_dict[label_id].update({'conn_monitorMember': {}})
+            # a_collective_dict[label_id]['conn_monitorMember'] = {}
 
     for super_label_name, label_name, components_name, components_dict in \
             zip(super_label_names, label_names, components_names, components_dicts):
@@ -435,10 +497,10 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
 def read_network(member_xml_dom: xml.dom.minidom.Document):
     network_labels = member_xml_dom.getElementsByTagName('networkStructure')
     for network_label in network_labels:
-        G = nx.Graph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
+        G = nx.DiGraph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
         edges_labels = network_label.getElementsByTagName('connectInfo')
         for edges_label in edges_labels:
             G.add_edge(edges_label.getAttribute('from'), edges_label.getAttribute('to'),
-                       weight=float(edges_label.getAttribute('strength')))
+                       strength=float(edges_label.getAttribute('strength')))
         members.network_list.append(G)
     members.old_network_list = members.network_list.copy()

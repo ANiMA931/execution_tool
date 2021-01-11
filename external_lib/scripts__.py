@@ -3,7 +3,7 @@ import members
 
 def p1(global_dict):
     global_dict['attr2'] = 12345
-    print(members.primitive_dict['memberID-559'])
+    print(members.primitive_dict['memberID-0'])
 
 
 def p2(global_dict):

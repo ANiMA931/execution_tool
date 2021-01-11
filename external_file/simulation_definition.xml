@@ -2,7 +2,7 @@
   <GenerationMethod>
     <simulationExecutionMetaModel>drer</simulationExecutionMetaModel>
     <!-- 需要加一个inherited标签，表示是否继承前一次迭代的数据 -->
-    <inherited>0</inherited>
+    <inherited>1</inherited>
     <version>fs</version>
     <modifyDate>2020-8-27</modifyDate>
     <author>d</author>
@@ -13,14 +13,14 @@
       <memberMetaModelFilePath>noID</memberMetaModelFilePath>
     </memberMetaModelDocument>
     <memberModelDocument>
-      <memberModelFilePath>E:/code/PycharmProjects/execution_tool/external_file/fpMemberXml_C.xml</memberModelFilePath>
+      <memberModelFilePath>D:/execution_tool/external_file/ceMemberXml_C.xml</memberModelFilePath>
     </memberModelDocument>
   </GenerationMethod>
   <RoundMethod>
     <simulationExecutionTypeName>divisionEvolution</simulationExecutionTypeName>
     <simulationExecutionTypeCode>DE</simulationExecutionTypeCode>
     <roundMethodDefinition><!-- 只需要TheRoundMethod标签，其他的都不用 -->
-      <TheRoundMethod name="p1" ID="noID" path="C:\Users\ANiMA\Desktop\external_dir\external_lib">
+      <TheRoundMethod name="p1" ID="noID" path="D:\execution_tool\external_lib">
         <attribute name="num" type="int" /><!--存在必要性存疑-->
       </TheRoundMethod>
 <!--      <primitiveRoundMethod name="d" ID="s" path="f">-->

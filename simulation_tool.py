@@ -6,26 +6,32 @@ from UI.simulation_exe_Form import Ui_Form  # 用designer设计的界面类
 from PyQt5 import QtCore, QtGui, QtWidgets  # Qt的核心部件
 from matplotlib import pyplot as plt
 import networkx as nx
+import pylab
 
 import sys  # 需要的部分内容
 import os  # 需要的部分内容
+import traceback
+from time import sleep  # 测试可能需要的东西
+from datetime import datetime
 
 import xml.dom.minidom  # 系统使用的xml操作类
 from xml.dom.minidom import parseString
-import external_func  # 自己编写的外部函数模块
-import members  # 自己编写的成员模块
-import pattren
 
+import external_func  # 自己编写的外部函数模块
 from external_func.read_file import read_xml_to_module  # 单独引用一下读取模块中的总和函数
 from external_func.__scripts import read_scripts, run_script  # 单独引用一下脚本模块中读取与运行的函数
-from time import sleep  # 测试可能需要的东西
-from datetime import datetime
+
+import members  # 自己编写的成员模块
 from members.read_file import read_network, read_member
+
+import pattren
 from pattren.read_file import read_pattern
-from other_tools import read_xml, write_xml  # 读取与生成xml文件的方法
+
+
+from other_tools import read_xml, write_xml, copy_file  # 读取与生成xml文件的方法
 from record_maker import save_member_round_record, save_global_attribute_record
 
-inherited = bool()  
+inherited = bool()
 
 
 class MyThread(QtCore.QThread):
@@ -321,10 +327,11 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
 
             self.service_msg_log_text.append(
                 str(datetime.now()) + ': ' + 'Read definition from: ' + member_path_label.firstChild.data)
-        except:
-            QtWidgets.QMessageBox.critical(self, "error", "Definition file error!")
-            self.def_xml_path_edit.clear()
-            self.service_msg_log_text.append(str(datetime.now()) + ': ' + 'Setting definition file error. ')
+        except Exception:
+            raise
+            # QtWidgets.QMessageBox.critical(self, "error", traceback.print_exc())
+            # self.def_xml_path_edit.clear()
+            # self.service_msg_log_text.append(str(datetime.now()) + ': ' + 'Setting definition file error. ')
 
     def slot_btn_set_members_path(self):
         """
@@ -366,7 +373,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
                     p_number, a_number, m_number, c_number
                 ))
         except:
-            QtWidgets.QMessageBox.critical(self, "Error", "Member file error!")
+            QtWidgets.QMessageBox.critical(self, "Error", traceback.print_exc())
             self.members_xml_path_edit.clear()
             self.service_msg_log_text.append(str(datetime.now()) + ': ' + 'Setting member XML file error. ')
             raise
@@ -401,10 +408,15 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
 
     def slot_btn_show_network(self):
         for i in range(members.network_list.__len__()):
+            edge_labels = dict([((u, v,), format(d['strength'], '.2f'))
+                                for u, v, d in members.network_list[i].edges(data=True)])
             plt.figure(members.network_list[i].graph['ID'])
-            nx.draw(members.network_list[i], with_labels=True, font_weight='bold')
-            plt.get_current_fig_manager().window.state('zoomed')
-        plt.show()
+            pos = nx.spring_layout(members.network_list[i])
+            nx.draw_networkx_edge_labels(members.network_list[i], pos, edge_labels=edge_labels)
+            nx.draw(members.network_list[i], pos=pos, node_size=1000, with_labels=True, font_weight='bold',
+                    edge_cmap=plt.cm.Reds)
+            # plt.get_current_fig_manager().window.state('zoomed')
+        pylab.show()
 
     def save_scripts_to_xml(self):
         """
@@ -535,7 +547,10 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             self.start_btn.setEnabled(False)
             self.pause_btn.setEnabled(True)
             self.MyThread.flag = True
-            save_member_round_record(self.record_dir_path_edit.text(),0,self.global_dict,len(self.generation_Edit.text()))
+            save_member_round_record(self.record_dir_path_edit.text(), 0, self.global_dict,
+                                     len(self.generation_Edit.text()))
+            # 添加一个把脚本保存到仿真记录路径下的代码
+            copy_file("external_file/script.xml", self.record_dir_path_edit.text()+'/')
             self.MyThread.start()
             self.service_msg_log_text.append(str(self.start_moment) + ": Simulation task started.")
 
