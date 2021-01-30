@@ -1,0 +1,71 @@
+<drer>
+  <GenerationMethod>
+    <simulationExecutionMetaModel>drer</simulationExecutionMetaModel>
+    <!-- 需要加一个inherited标签，表示是否继承前一次迭代的数据 -->
+    <inherited>1</inherited>
+    <version>fs</version>
+    <modifyDate>2020-8-27</modifyDate>
+    <author>d</author>
+    <simulationRoundNumber>1000</simulationRoundNumber>
+    <note>d</note>
+    <memberMetaModelDocument>
+      <!-- 此处需要改为成员元模型ID,或者再加一个保存元模型ID的标签 -->
+      <memberMetaModelFilePath>noID</memberMetaModelFilePath>
+    </memberMetaModelDocument>
+    <memberModelDocument>
+      <memberModelFilePath>F:\pythonCode\PycharmProjects\execution_tool\external_file\ceMemberXml_C.xml</memberModelFilePath>
+    </memberModelDocument>
+  </GenerationMethod>
+  <RoundMethod>
+    <simulationExecutionTypeName>divisionEvolution</simulationExecutionTypeName>
+    <simulationExecutionTypeCode>DE</simulationExecutionTypeCode>
+    <roundMethodDefinition><!-- 只需要TheRoundMethod标签，其他的都不用 -->
+      <TheRoundMethod name="p1" ID="noID" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+        <attribute name="num" type="int" /><!--存在必要性存疑-->
+      </TheRoundMethod>
+<!--      <primitiveRoundMethod name="d" ID="s" path="f">-->
+<!--        <attribute name="1" type="string" valueRange="{&lt;字符&gt;}" recursiveMethodName="f" filePath="d" />-->
+<!--        <attribute name="2" type="string" valueRange="{&lt;字符&gt;}" recursiveMethodName="f" filePath="f" />-->
+<!--      </primitiveRoundMethod>-->
+<!--      <adviserRoundMethod name="sd" ID="a" path="f">-->
+<!--        <attribute name="4" type="string" valueRange="{&lt;字符&gt;}" recursiveMethodName="4" filePath="s" />-->
+<!--      </adviserRoundMethod>-->
+<!--      <monitorRoundMethod name="dfs" ID="" path="" />-->
+<!--      <collectiveRoundMethod name="as" ID="" path="">-->
+<!--        <attribute name="8" type="string" valueRange="{&lt;字符&gt;}" recursiveMethodName="g" filePath="d" />-->
+<!--      </collectiveRoundMethod>-->
+    </roundMethodDefinition>
+  </RoundMethod>
+  <GlobalAttribute><!-- 需要对设置的全局属性给一个初始值 -->
+    <GlobalAttributeRecursionMethod aName="attr1" init="0.48" type="double" ID="j6y" fName="global_attribute_1" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib" valueRange="{&lt;字符&gt;}">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+    <GlobalAttributeRecursionMethod aName="attr2" init="0.75" type="double" ID="j6y" fName="global_attribute_2" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}"/>
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+    <GlobalAttributeRecursionMethod aName="attr3" init="0.99" type="double" ID="f" fName="global_attribute_3" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+    <GlobalAttributeRecursionMethod aName="attr4" init="12.96" type="double" ID="f" fName="global_attribute_4" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+    <GlobalAttributeRecursionMethod aName="attr5" init="7.62" type="double" ID="g" fName="global_attribute_5" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+    <GlobalAttributeRecursionMethod aName="attr6" init="56.21" type="double" ID="g" fName="global_attribute_6" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
+      <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
+    </GlobalAttributeRecursionMethod>
+  </GlobalAttribute>
+</drer>

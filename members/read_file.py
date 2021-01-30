@@ -1,6 +1,7 @@
 import members
 import xml.dom.minidom
 import networkx as nx
+import sys
 from copy import deepcopy
 from other_tools import get_empty_dict, dict2object
 
@@ -254,7 +255,7 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
         :param xml_dom_for_adviser:
         :return:
         """
-        adviserInfo_labels = xml_dom_for_adviser.getElementsByTagName('advisorInfo')
+        adviserInfo_labels = xml_dom_for_adviser.getElementsByTagName('adviserInfo')
         for adviserInfo_label in adviserInfo_labels:
             label_id = adviserInfo_label.getAttribute('建议者ID')
             # an_advisers_dict.update({label_id: {}})
@@ -486,12 +487,101 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
     members.primitive_dict = a_primitives_dict
     members.collective_dict = a_collective_dict
     members.adviser_dict = an_advisers_dict
-    members.monitor_dict = a_monitorMembers_dict
+    members.monitorMember_dict = a_monitorMembers_dict
     # members.old_primitive_dict = deepcopy(members.primitive_dict)
     # members.old_collective_dict = deepcopy(members.collective_dict)
     # members.old_adviser_dict = deepcopy(members.adviser_dict)
     # members.old_monitor_dict = deepcopy(members.monitor_dict)
     return a_primitives_dict, an_advisers_dict, a_monitorMembers_dict, a_collective_dict
+
+
+def read_component_methods(member_xml_dom: xml.dom.minidom.Document):
+    """
+    读取组件方法，包括原子性成员各个组件的方法、集合型成员各个组件的方法、建议者的方法与监控者的方法
+    :param member_xml_dom:
+    :return:
+    """
+
+    # members.primitive_components
+    def read_primitive_component_methods(member_xml_dom: xml.dom.minidom.Document):
+        """
+        读取原子型成员的组件方法
+        :param member_xml_dom:
+        :return:
+        """
+        component_label_list = ["affector", "decider", "monitor", "executor", "connector"]
+        for component_label_name in component_label_list:
+            primitive_component_methods_label = member_xml_dom.getElementsByTagName(component_label_name)
+            if primitive_component_methods_label.__len__() != 0:
+                method_path = primitive_component_methods_label[0].getAttribute("外部函数路径")
+                if method_path not in sys.path:
+                    sys.path.append(method_path)
+                the_method_module = __import__("primitive_component", fromlist=(component_label_name + "_method",))
+                members.primitive_components[component_label_name + '_method'] = eval('the_method_module.' +
+                                                                                      component_label_name +
+                                                                                      "_method"
+                                                                                      )
+        pass
+
+    # members.collective_components
+    def read_collective_component_methods(member_xml_dom: xml.dom.minidom.Document):
+        """
+        读取集合型成员的组件方法
+        :param member_xml_dom:
+        :return:
+        """
+        component_label_list = ["decomposer", "converger", "affector", "c_decider", "monitor", "c_executor",
+                                "connector"]
+        for component_label_name in component_label_list:
+            collective_component_methods_label = member_xml_dom.getElementsByTagName(component_label_name)
+            if collective_component_methods_label.__len__() != 0:
+                method_path = collective_component_methods_label[0].getAttribute("外部函数路径")
+                if method_path not in sys.path:
+                    sys.path.append(method_path)
+                the_method_module = __import__("collective_component", fromlist=(component_label_name + "_method",))
+                members.collective_components[component_label_name + '_method'] = eval('the_method_module.' +
+                                                                                       component_label_name +
+                                                                                       "_method"
+                                                                                       )
+
+        pass
+
+    def read_adviser_component_methods(member_xml_dom: xml.dom.minidom.Document):
+        """
+        读取建议者成员的组件方法
+        :param member_xml_dom:
+        :return:
+        """
+        component_label_name = "adviser"
+        adviser_component_methods_label = member_xml_dom.getElementsByTagName(component_label_name)
+        if adviser_component_methods_label.__len__() != 0:
+            method_path = adviser_component_methods_label[0].getAttribute("外部函数路径")
+            if method_path not in sys.path:
+                sys.path.append(method_path)
+            the_method_module = __import__("adviser_component", fromlist=(component_label_name + "_method",))
+            members.adviser_method = eval('the_method_module.' + component_label_name + "_method")
+        pass
+
+    def read_monitorMember_component_methods(member_xml_dom: xml.dom.minidom.Document):
+        """
+        读取监控成员的组件方法
+        :param member_xml_dom:
+        :return:
+        """
+        component_label_name = "monitorMember"
+        monitorMember_component_methods_label = member_xml_dom.getElementsByTagName(component_label_name)
+        if monitorMember_component_methods_label.__len__() != 0:
+            method_path = monitorMember_component_methods_label[0].getAttribute("外部函数路径")
+            if method_path not in sys.path:
+                sys.path.append(method_path)
+            the_method_module = __import__("monitorMember_component", fromlist=(component_label_name + "_method",))
+            members.monitor_method = eval('the_method_module.' + component_label_name + "_method")
+        pass
+
+    read_primitive_component_methods(member_xml_dom)
+    read_collective_component_methods(member_xml_dom)
+    read_adviser_component_methods(member_xml_dom)
+    read_monitorMember_component_methods(member_xml_dom)
 
 
 def read_network(member_xml_dom: xml.dom.minidom.Document):
@@ -503,4 +593,13 @@ def read_network(member_xml_dom: xml.dom.minidom.Document):
             G.add_edge(edges_label.getAttribute('from'), edges_label.getAttribute('to'),
                        strength=float(edges_label.getAttribute('strength')))
         members.network_list.append(G)
+        members.network_dict.update({network_label.getAttribute('ID'): G})
     members.old_network_list = members.network_list.copy()
+
+
+if __name__ == '__main__':
+    from other_tools import read_xml
+    dom=read_xml(r"F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution\ceMemberXml_C.xml")
+
+    read_component_methods(dom)
+    input()

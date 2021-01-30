@@ -25,7 +25,7 @@ def p1(global_dict):
             global task_dom,task_dict,task_labels
             if a_p_dict['决策器']['任务ID集合'][0].__class__ is not dict:
                 if task_dom is None:
-                    task_dom = read_xml(r"external_file/Task.xml")
+                    task_dom = read_xml(r"external_file_for_cEvolution/Task.xml")
                     task_dict = {}
                     task_labels = task_dom.getElementsByTagName("task")
                 for task_label in task_labels:

@@ -1,8 +1,8 @@
 from other_tools import read_xml, write_xml
 from random import shuffle, randint
 
-member_dom = read_xml(r"E:\code\PycharmProjects\execution_tool\external_file\ceMemberXml_C.xml")
-task_dom = read_xml(r"E:\code\PycharmProjects\execution_tool\external_file\Task.xml")
+member_dom = read_xml(r"\external_file\ceMemberXml_C.xml")
+task_dom = read_xml(r"E:\external_file\Task.xml")
 task_labels = task_dom.getElementsByTagName("task")
 decider_labels = member_dom.getElementsByTagName("deciderInfo")
 task_id_list = []
@@ -29,4 +29,4 @@ for decider_label, k in zip(decider_labels, range(len(index_))):
     decider_label.setAttribute("任务ID集合", str(task_id_list[the_i:the_j]))
     the_i = the_j
 
-write_xml(r"E:\code\PycharmProjects\execution_tool\external_file\ceMemberXml_C.xml", member_dom)
+write_xml(r"\external_file\ceMemberXml_C.xml", member_dom)

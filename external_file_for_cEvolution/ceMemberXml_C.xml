@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<memberGeneration>
+    <memberNums>
+        <memberNum 原子型成员数量="7" 建议者成员数量="13" 监控者成员数量="0" 集合型成员数量="0"/>
+        <memberInfos>
+            <memberInfo 成员ID="memberID-0" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-1" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-2" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-3" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-4" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-5" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-6" 成员模型="MetaModelID - 1" 成员类型="原子型成员"/>
+            <memberInfo 成员ID="memberID-200" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-201" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-202" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-203" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-204" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-205" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-206" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-207" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-208" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-209" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-210" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-211" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+            <memberInfo 成员ID="memberID-212" 成员模型="MetaModelID - 3" 成员类型="建议者成员"/>
+        </memberInfos>
+    </memberNums>
+    <advisers>
+        <adviser 外部函数路径="F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution\"
+                 建议禀赋方差="5" 建议禀赋期望="30"/>
+        <adviserInfos>
+            <adviserInfo 建议禀赋="26.76" 建议者ID="memberID-200" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="29.60" 建议者ID="memberID-201" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="32.67" 建议者ID="memberID-202" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="32.76" 建议者ID="memberID-203" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="30.82" 建议者ID="memberID-204" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="34.38" 建议者ID="memberID-205" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="26.29" 建议者ID="memberID-206" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="31.58" 建议者ID="memberID-207" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="28.25" 建议者ID="memberID-208" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="25.62" 建议者ID="memberID-209" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="33.84" 建议者ID="memberID-210" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="28.73" 建议者ID="memberID-211" 建议路径="b2" 成员模型="MetaModelID - 3"/>
+            <adviserInfo 建议禀赋="31.28" 建议者ID="memberID-212" 建议路径="b1" 成员模型="MetaModelID - 3"/>
+        </adviserInfos>
+    </advisers>
+    <primitives>
+        <primitive 自信水平方差="0.15" 自信水平期望="0.5" 自律水平方差="0.15" 自律水平期望="0.7"/>
+        <primitiveInfos>
+            <primitiveInfo 决策器="deciderID-3" 原子型成员ID="memberID-0"
+                           学习率向量="[0.18228543384675625, 0.27840748336762405, 0.15864526758548209, 0.6811407434839629, 0.3134072522213929, 0.5044856642675085, 0.4444071463020772]"
+                           影响器="affectorID-1" 执行器="executorID-4" 监控器="" 联接器="connectorID-1"
+                           能力向量="[0.24338410955194034, 0.25804387110804516, 0.7397276355543844, 0.2541984016693721, 0.26799969963490455, 0.37914664396850806, 0.48935260920947105]"
+                           自信水平="0.38697380937731524" 自律水平="0.8667587275520505"/>
+            <primitiveInfo 决策器="deciderID-5" 原子型成员ID="memberID-1"
+                           学习率向量="[0.19181787745536233, 0.4580041835430558, 0.20224004835174875, 0.6604684117340269, 0.32075448737350815, 0.3319455444544279, 0.2494594697433216]"
+                           影响器="affectorID-4" 执行器="executorID-6" 监控器="" 联接器="connectorID-4"
+                           能力向量="[0.16803601537426147, 0.6111076342813488, 0.7308153899538167, 0.28208334567855553, 0.18408456506091742, 0.20033691717312202, 0.33467217551228323]"
+                           自信水平="0.49075794758364294" 自律水平="0.7697926731279463"/>
+            <primitiveInfo 决策器="deciderID-2" 原子型成员ID="memberID-2"
+                           学习率向量="[0.27849300945307237, 0.25721109834304, 0.1551225444117484, 0.28142868969963064, 0.4027901919678225, 0.45188203908660757, 0.522735481669194]"
+                           影响器="affectorID-5" 执行器="executorID-5" 监控器="" 联接器="connectorID-0"
+                           能力向量="[0.07388199242371825, 0.4216307738758833, 0.7248586421220268, 0.11966868372577352, 0.5050917950692524, 0.2657317996978896, 0.33318559582830776]"
+                           自信水平="0.21694729993071526" 自律水平="0.8369980902815104"/>
+            <primitiveInfo 决策器="deciderID-4" 原子型成员ID="memberID-3"
+                           学习率向量="[0.19630000234446443, 0.1904154318441952, 0.10746770169071554, 0.5653097082860533, 0.4251171311213078, 0.7169060108570012, 0.343461246165145]"
+                           影响器="affectorID-0" 执行器="executorID-3" 监控器="" 联接器="connectorID-5"
+                           能力向量="[0.26365210792486304, 0.19753571596639535, 0.7283661344580155, 0.35977264241803725, 0.15792139920040923, 0.28933465920165935, 0.4072485111491296]"
+                           自信水平="0.49213922003276395" 自律水平="0.6646089809212107"/>
+            <primitiveInfo 决策器="deciderID-0" 原子型成员ID="memberID-4"
+                           学习率向量="[0.21727169282146938, 0.35842061557249333, 0.12324916646257159, 0.45530191794805486, 0.5474019231151658, 0.7998738685318231, 0.32881730355342914]"
+                           影响器="affectorID-6" 执行器="executorID-0" 监控器="" 联接器="connectorID-3"
+                           能力向量="[0.18451384022860834, 0.5036431860015957, 0.7353077134565967, 0.22066844370048264, 0.3109134257447315, 0.5737038542073701, 0.34052027002829754]"
+                           自信水平="0.55984168424643" 自律水平="0.6227566706904389"/>
+            <primitiveInfo 决策器="deciderID-1" 原子型成员ID="memberID-5"
+                           学习率向量="[0.24566020677506517, 0.41989762169875816, 0.14107277301732518, 0.8822356694633817, 0.5156277273055482, 0.7115816230081393, 0.4336943146709044]"
+                           影响器="affectorID-3" 执行器="executorID-1" 监控器="" 联接器="connectorID-6"
+                           能力向量="[0.32756320305891284, 0.6038976344133462, 0.7519956362897758, 0.15781378632799029, 0.2770025703774474, 0.49799168068664645, 0.6910877527145447]"
+                           自信水平="0.45231813035248003" 自律水平="0.7864621196267896"/>
+            <primitiveInfo 决策器="deciderID-6" 原子型成员ID="memberID-6"
+                           学习率向量="[0.19271800574232498, 0.24572096254365272, 0.20273410861949015, 0.8047001709252661, 0.40443291355775335, 0.28822951886419634, 0.30323153086174526]"
+                           影响器="affectorID-2" 执行器="executorID-2" 监控器="" 联接器="connectorID-2"
+                           能力向量="[0.1365606165944706, 0.4500787145332229, 0.7809191176112338, 0.47600984793483947, 0.600118527424238, 0.6004766127483369, 0.558896202431882]"
+                           自信水平="0.632188694692704" 自律水平="0.5067342716028203"/>
+        </primitiveInfos>
+    </primitives>
+    <affectors>
+        <affector 外部函数路径="F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution"
+                  平均影响强度方差="0.1" 平均影响强度期望="0.4" 影响器数量="7" 连接成员数量方差="0.5" 连接成员数量期望="4"/>
+        <affectorInfos>
+            <affectorInfo 平均影响强度="0.54" 影响器ID="affectorID-0" 连接成员数量="3"/>
+            <affectorInfo 平均影响强度="0.55" 影响器ID="affectorID-1" 连接成员数量="2"/>
+            <affectorInfo 平均影响强度="0.15" 影响器ID="affectorID-2" 连接成员数量="5"/>
+            <affectorInfo 平均影响强度="0.62" 影响器ID="affectorID-3" 连接成员数量="3"/>
+            <affectorInfo 平均影响强度="0.51" 影响器ID="affectorID-4" 连接成员数量="4"/>
+            <affectorInfo 平均影响强度="0.62" 影响器ID="affectorID-5" 连接成员数量="5"/>
+            <affectorInfo 平均影响强度="0.48" 影响器ID="affectorID-6" 连接成员数量="1"/>
+        </affectorInfos>
+    </affectors>
+    <deciders>
+        <decider 决策器数量="7" 外部函数路径="F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution"/>
+        <deciderInfos>
+            <deciderInfo
+                    任务ID集合="['Task-182', 'Task-191', 'Task-99', 'Task-32', 'Task-146', 'Task-64', 'Task-137', 'Task-56', 'Task-128', 'Task-199', 'Task-119', 'Task-34', 'Task-143', 'Task-120', 'Task-164', 'Task-108']"
+                    决策器ID="deciderID-0"/>
+            <deciderInfo
+                    任务ID集合="['Task-37', 'Task-93', 'Task-169', 'Task-61', 'Task-12', 'Task-130', 'Task-70', 'Task-198', 'Task-127', 'Task-133', 'Task-156', 'Task-38', 'Task-152', 'Task-28', 'Task-96', 'Task-161', 'Task-2', 'Task-198', 'Task-173', 'Task-98', 'Task-59', 'Task-68', 'Task-18', 'Task-65', 'Task-136', 'Task-177', 'Task-52', 'Task-190', 'Task-44', 'Task-105', 'Task-155', 'Task-8', 'Task-45', 'Task-121', 'Task-72', 'Task-190', 'Task-60', 'Task-91', 'Task-127', 'Task-78', 'Task-109', 'Task-188', 'Task-171', 'Task-14', 'Task-82', 'Task-42', 'Task-54', 'Task-158', 'Task-103', 'Task-23', 'Task-122', 'Task-68', 'Task-74', 'Task-114', 'Task-144', 'Task-64', 'Task-172', 'Task-47', 'Task-171', 'Task-191', 'Task-15', 'Task-86', 'Task-125', 'Task-79', 'Task-93', 'Task-79', 'Task-54', 'Task-102', 'Task-110', 'Task-8', 'Task-47', 'Task-121', 'Task-114', 'Task-92', 'Task-132', 'Task-87', 'Task-76', 'Task-193', 'Task-179', 'Task-32', 'Task-162', 'Task-4', 'Task-84', 'Task-147', 'Task-105', 'Task-187', 'Task-30', 'Task-173', 'Task-132', 'Task-182', 'Task-1', 'Task-118', 'Task-0', 'Task-162', 'Task-129', 'Task-48', 'Task-72', 'Task-129', 'Task-10', 'Task-24', 'Task-19', 'Task-174', 'Task-52', 'Task-17', 'Task-131', 'Task-77', 'Task-89', 'Task-146', 'Task-126', 'Task-113', 'Task-36', 'Task-167', 'Task-170', 'Task-36', 'Task-77', 'Task-120', 'Task-26', 'Task-140', 'Task-63', 'Task-167', 'Task-27', 'Task-166', 'Task-51', 'Task-75', 'Task-152', 'Task-87', 'Task-172', 'Task-83', 'Task-189', 'Task-11', 'Task-134', 'Task-143', 'Task-46', 'Task-137', 'Task-151', 'Task-118', 'Task-176', 'Task-147']"
+                    决策器ID="deciderID-1"/>
+            <deciderInfo 任务ID集合="['Task-116', 'Task-90']" 决策器ID="deciderID-2"/>
+            <deciderInfo 任务ID集合="['Task-78', 'Task-184', 'Task-157', 'Task-138']" 决策器ID="deciderID-3"/>
+            <deciderInfo
+                    任务ID集合="['Task-62', 'Task-69', 'Task-142', 'Task-178', 'Task-194', 'Task-185', 'Task-150', 'Task-168', 'Task-101', 'Task-13', 'Task-156', 'Task-154', 'Task-128', 'Task-6', 'Task-96', 'Task-119', 'Task-16', 'Task-22', 'Task-107', 'Task-104', 'Task-62', 'Task-111', 'Task-145', 'Task-138', 'Task-103', 'Task-9', 'Task-50', 'Task-176', 'Task-37', 'Task-51', 'Task-144', 'Task-29', 'Task-25', 'Task-43', 'Task-22', 'Task-145', 'Task-163', 'Task-69', 'Task-179', 'Task-150', 'Task-90', 'Task-40', 'Task-46', 'Task-185', 'Task-12', 'Task-28', 'Task-41', 'Task-197', 'Task-34', 'Task-159', 'Task-38', 'Task-20', 'Task-195', 'Task-0', 'Task-139', 'Task-160', 'Task-10', 'Task-35', 'Task-125', 'Task-60', 'Task-177', 'Task-95', 'Task-31', 'Task-88', 'Task-106', 'Task-135', 'Task-98', 'Task-148', 'Task-85', 'Task-180', 'Task-57', 'Task-25', 'Task-107', 'Task-9', 'Task-57', 'Task-40', 'Task-100', 'Task-165', 'Task-86', 'Task-199', 'Task-181', 'Task-71', 'Task-117', 'Task-193', 'Task-124', 'Task-43', 'Task-11', 'Task-131', 'Task-14']"
+                    决策器ID="deciderID-4"/>
+            <deciderInfo
+                    任务ID集合="['Task-56', 'Task-48', 'Task-169', 'Task-13', 'Task-196', 'Task-80', 'Task-175', 'Task-76', 'Task-49', 'Task-97', 'Task-175', 'Task-140', 'Task-2', 'Task-44', 'Task-157', 'Task-194', 'Task-5', 'Task-141', 'Task-35', 'Task-163', 'Task-88', 'Task-84', 'Task-16', 'Task-168', 'Task-184', 'Task-133', 'Task-55', 'Task-73', 'Task-139', 'Task-178', 'Task-148', 'Task-18', 'Task-58', 'Task-27', 'Task-71', 'Task-1', 'Task-67', 'Task-61', 'Task-26', 'Task-21', 'Task-30', 'Task-112', 'Task-39', 'Task-123', 'Task-189', 'Task-66', 'Task-31', 'Task-149', 'Task-42', 'Task-153', 'Task-151', 'Task-126', 'Task-45', 'Task-115', 'Task-67', 'Task-85', 'Task-111', 'Task-21', 'Task-130', 'Task-81', 'Task-65', 'Task-50', 'Task-99', 'Task-89', 'Task-197', 'Task-108', 'Task-3', 'Task-95', 'Task-123', 'Task-192', 'Task-102', 'Task-113', 'Task-58', 'Task-164', 'Task-196', 'Task-94', 'Task-19', 'Task-165', 'Task-166', 'Task-33', 'Task-159', 'Task-181', 'Task-110', 'Task-158', 'Task-66', 'Task-101', 'Task-134', 'Task-170', 'Task-136', 'Task-6', 'Task-142', 'Task-94', 'Task-100', 'Task-20', 'Task-70', 'Task-112', 'Task-92', 'Task-154', 'Task-195', 'Task-33', 'Task-186', 'Task-53', 'Task-75', 'Task-39', 'Task-49', 'Task-80']"
+                    决策器ID="deciderID-5"/>
+            <deciderInfo
+                    任务ID集合="['Task-104', 'Task-15', 'Task-5', 'Task-141', 'Task-74', 'Task-188', 'Task-155', 'Task-174', 'Task-91', 'Task-59', 'Task-97', 'Task-83', 'Task-160', 'Task-23', 'Task-124', 'Task-161', 'Task-117', 'Task-149', 'Task-29', 'Task-115', 'Task-183', 'Task-82', 'Task-109', 'Task-73', 'Task-135', 'Task-63', 'Task-53', 'Task-180', 'Task-81', 'Task-17', 'Task-41', 'Task-3', 'Task-183', 'Task-116', 'Task-7', 'Task-55', 'Task-187', 'Task-186', 'Task-192', 'Task-4', 'Task-106', 'Task-122', 'Task-153', 'Task-7']"
+                    决策器ID="deciderID-6"/>
+        </deciderInfos>
+    </deciders>
+    <monitors/>
+<!--        <monitor 外部函数路径="?????" 监控器数量="0" 监控强度方差="0" 监控强度期望="0"/>-->
+<!--        <monitorInfos>-->
+<!--            <monitorInfo/>-->
+<!--        </monitorInfos>-->
+<!--    </monitors>-->
+    <monitorMembers/>
+<!--        <monitorMember 监控强度方差="0" 监控强度期望="0" 监控禀赋方差="0" 监控禀赋期望="0"/>-->
+<!--        <monitorMemberInfos>-->
+<!--            <monitorMemberInfo/>-->
+<!--        </monitorMemberInfos>-->
+<!--    </monitorMembers>-->
+    <executors>
+        <executor 外部函数路径="F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution"
+                  执行器数量="7" 突变率方差="0.00005" 突变率期望="0.0001"/>
+        <executorInfos>
+            <executorInfo 执行器ID="executorID-0" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-1" 突变率="0.003336"/>
+            <executorInfo 执行器ID="executorID-2" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-3" 突变率="0.000000"/>
+            <executorInfo 执行器ID="executorID-4" 突变率="0.005917"/>
+            <executorInfo 执行器ID="executorID-5" 突变率="0.003450"/>
+            <executorInfo 执行器ID="executorID-6" 突变率="0.000000"/>
+        </executorInfos>
+    </executors>
+    <connectors>
+        <connector 外部函数路径="F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution"
+                   成员数量方差="1" 成员数量期望="3" 联接器数量="7" 连接强度方差="0.1" 连接强度期望="0.4"/>
+        <connectorInfos>
+            <connectorInfo 平均连接强度="0.50" 联接器ID="connectorID-0" 连接成员数量="3"/>
+            <connectorInfo 平均连接强度="0.48" 联接器ID="connectorID-1" 连接成员数量="5"/>
+            <connectorInfo 平均连接强度="0.65" 联接器ID="connectorID-2" 连接成员数量="1"/>
+            <connectorInfo 平均连接强度="0.53" 联接器ID="connectorID-3" 连接成员数量="2"/>
+            <connectorInfo 平均连接强度="0.48" 联接器ID="connectorID-4" 连接成员数量="3"/>
+            <connectorInfo 平均连接强度="0.47" 联接器ID="connectorID-5" 连接成员数量="5"/>
+            <connectorInfo 平均连接强度="0.40" 联接器ID="connectorID-6" 连接成员数量="4"/>
+        </connectorInfos>
+    </connectors>
+    <connect>
+        <networkStructure ID="net-p2p" type="p2p">
+            <connectInfo from="memberID-0" strength="0.08291672780222059" to="memberID-6"/>
+            <connectInfo from="memberID-0" strength="0.20036290128597284" to="memberID-3"/>
+            <connectInfo from="memberID-0" strength="0.03729950979472004" to="memberID-2"/>
+            <connectInfo from="memberID-0" strength="0.053852646373586055" to="memberID-4"/>
+            <connectInfo from="memberID-0" strength="0.10556821474350042" to="memberID-1"/>
+            <connectInfo from="memberID-1" strength="0.13403570484009678" to="memberID-5"/>
+            <connectInfo from="memberID-1" strength="0.16384928232506685" to="memberID-2"/>
+            <connectInfo from="memberID-1" strength="0.1821150128348364" to="memberID-3"/>
+            <connectInfo from="memberID-2" strength="0.24429291887001056" to="memberID-5"/>
+            <connectInfo from="memberID-2" strength="0.15907353981460273" to="memberID-3"/>
+            <connectInfo from="memberID-2" strength="0.09663354131538665" to="memberID-1"/>
+            <connectInfo from="memberID-3" strength="0.06596686032789648" to="memberID-4"/>
+            <connectInfo from="memberID-3" strength="0.11573095951703548" to="memberID-5"/>
+            <connectInfo from="memberID-3" strength="0.11028002985436317" to="memberID-1"/>
+            <connectInfo from="memberID-3" strength="0.1535089777056133" to="memberID-6"/>
+            <connectInfo from="memberID-3" strength="0.02451317259509158" to="memberID-2"/>
+            <connectInfo from="memberID-4" strength="0.25539475258609207" to="memberID-3"/>
+            <connectInfo from="memberID-4" strength="0.27460524741390796" to="memberID-0"/>
+            <connectInfo from="memberID-5" strength="0.08853234475199087" to="memberID-0"/>
+            <connectInfo from="memberID-5" strength="0.11482410181155012" to="memberID-1"/>
+            <connectInfo from="memberID-5" strength="0.014034194474721234" to="memberID-4"/>
+            <connectInfo from="memberID-5" strength="0.1826093589617378" to="memberID-3"/>
+        </networkStructure>
+<!--        <networkStructure ID="net-p2a" type="p2a">-->
+<!--            <connectInfo/>-->
+<!--        </networkStructure>-->
+<!--        <networkStructure ID="net-p2m" type="p2m">-->
+<!--            <connectInfo from="" strength="" to=""/>-->
+<!--        </networkStructure>-->
+    </connect>
+    <pattern>
+        <commonInformation ID="ptn-1" author="MA" modifyDate="2019.04" name="theFirst" remark="No" version="0.0"/>
+        <positions scale="3">
+            <position name="beginning" pID="p0" type="start" weight="0"/>
+            <position name="ending1" pID="p21" type="ending" weight="0"/>
+            <position name="ending2" pID="p22" type="ending" weight="0"/>
+        </positions>
+        <behaviors scale="2">
+            <behavior after="p21" bID="b1" before="p0" comment="给别人" weight="0"/>
+            <behavior after="p22" bID="b2" before="p0" comment="给自己" weight="0"/>
+        </behaviors>
+        <comment/>
+    </pattern>
+</memberGeneration>

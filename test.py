@@ -6,8 +6,8 @@
 # import matplotlib.pyplot as plt
 # from external_func.read_file import read_global_attribute, read_round_method, read_round_number
 
-# external_func.external_func_file_path = r'external_file\simulation_definition.xml'  # 外部输入的文件名
-# members.member_file_path = r'external_file\fpMemberXml_C.xml'
+# external_func.external_func_file_path = r'external_file_for_cEvolution\simulation_definition.xml'  # 外部输入的文件名
+# members.member_file_path = r'external_file_for_cEvolution\fpMemberXml_C.xml'
 # 
 # external_func.external_func_dom = read_xml(external_func.external_func_file_path)
 # members.member_dom = read_xml(members.member_file_path)
@@ -23,7 +23,7 @@
 # 
 
 # if __name__ == '__main__':
-#     members.member_file_path=r'E:\code\PycharmProjects\execution_tool\external_file\fpMemberXml_C.xml'
+#     members.member_file_path=r'E:\code\PycharmProjects\execution_tool\external_file_for_cEvolution\fpMemberXml_C.xml'
 #     read_network(read_xml(members.member_file_path))
 #     for i in range(members.network_list.__len__()):
 #         plt.figure(members.network_list[i].graph['ID'])

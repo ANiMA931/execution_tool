@@ -18,7 +18,7 @@ def save_member_round_record(record_path, round_number,global_dict, width):
         'primitives': members.primitive_dict,
         'collectives': members.collective_dict,
         'advisers': members.adviser_dict,
-        'monitors': members.monitor_dict,
+        'monitors': members.monitorMember_dict,
     }
     # 将整理得到的所有成员保存为符合xml文档的字符串
     res = "<%s>""%s""</%s>" % ("RecordDetail", dict_to_xml_str(member_dict), "RecordDetail")

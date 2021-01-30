@@ -1,5 +1,5 @@
 from other_tools import read_xml, write_xml
-from external_file.create_task import dimension
+from external_file_for_cEvolution.create_task import dimension
 from scipy import stats
 from random import shuffle
 import numpy as np

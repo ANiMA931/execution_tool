@@ -4,34 +4,34 @@
 '''
 from UI.simulation_exe_Form import Ui_Form  # 用designer设计的界面类
 from PyQt5 import QtCore, QtGui, QtWidgets  # Qt的核心部件
-from matplotlib import pyplot as plt
-import networkx as nx
-import pylab
+from matplotlib import pyplot as plt  # 输出网络连接图需要的模块
+import networkx as nx  # 输出网络连接图需要的模块
+import pylab  # 输出网络连接图需要的模块
 
 import sys  # 需要的部分内容
 import os  # 需要的部分内容
 import traceback
 from time import sleep  # 测试可能需要的东西
-from datetime import datetime
+from datetime import datetime  # 基本的仿真时间
 
 import xml.dom.minidom  # 系统使用的xml操作类
-from xml.dom.minidom import parseString
+from xml.dom.minidom import parseString  # 用于转换符合xml文件标准的字符串为dom对象
 
 import external_func  # 自己编写的外部函数模块
 from external_func.read_file import read_xml_to_module  # 单独引用一下读取模块中的总和函数
 from external_func.__scripts import read_scripts, run_script  # 单独引用一下脚本模块中读取与运行的函数
 
 import members  # 自己编写的成员模块
-from members.read_file import read_network, read_member
+from members.read_file import read_network, read_member  # 读取网络与成员所需的函数
 
-import pattren
-from pattren.read_file import read_pattern
+import pattren  # 自己编写的格局模块
+from pattren.read_file import read_pattern  # 读取格局所需的函数
 
 
 from other_tools import read_xml, write_xml, copy_file  # 读取与生成xml文件的方法
-from record_maker import save_member_round_record, save_global_attribute_record
+from record_maker import save_member_round_record, save_global_attribute_record  # 生成每一轮仿真纵览信息和所有成员的细节信息
 
-inherited = bool()
+inherited = bool()  # 仿真继承标志位
 
 
 class MyThread(QtCore.QThread):
@@ -55,6 +55,8 @@ class MyThread(QtCore.QThread):
                 run_script(self.global_dict, self.current_generation)
                 print("in Thread, current_generation:{}".format(self.current_generation))
                 external_func.round_method(self.global_dict)
+                for global_attr_func in external_func.global_attribute_func_ptrs:
+                    global_attr_func(self.global_dict)
                 self._signal.emit(self.current_generation)
                 sleep(0.001)
             else:
@@ -290,12 +292,14 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             self.MyThread.generation_upper = int(generation_label.firstChild.data)
             inherited_label = definition_dom.getElementsByTagName("inherited")[0]
             global inherited
-            if int(inherited_label.firstChild.data):
+            if int(inherited_label.firstChild.data): # 如果继承数据
                 self.inherited_Edit.setText("True")
                 inherited = True
             else:
                 self.inherited_Edit.setText("False")
                 inherited = False
+                self.step_size_Edit.setText("1") # 如果不继承，则说明每一轮仿真都是从最初始状态开始的，那么步长将不存在意义
+                self.step_size_Edit.setEnabled(False)
             # 根据这个路径来读取成员
             member_dom = read_xml(self.members_xml_path_edit.text())
             # 服务信息更新显示
@@ -424,7 +428,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
         :return:bool
         """
         # 设置保存路径，为本项目下的external_file文件夹
-        save_path = "external_file"
+        save_path = "external_file_for_cEvolution"
         # 设置文件名
         file_name = "script.xml"
         # 保存表格中的内容
@@ -550,7 +554,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             save_member_round_record(self.record_dir_path_edit.text(), 0, self.global_dict,
                                      len(self.generation_Edit.text()))
             # 添加一个把脚本保存到仿真记录路径下的代码
-            copy_file("external_file/script.xml", self.record_dir_path_edit.text()+'/')
+            copy_file("external_file_for_cEvolution/script.xml", self.record_dir_path_edit.text()+'/')
             self.MyThread.start()
             self.service_msg_log_text.append(str(self.start_moment) + ": Simulation task started.")
 
@@ -600,7 +604,7 @@ def format_members_id_role(xml_dom: xml.dom.minidom.Document):
     member_info_labels = root.getElementsByTagName('memberInfo')  # 获取memberInfo标签
     primitive_number = len(root.getElementsByTagName('primitiveInfo'))  # 获取primitiveInfo标签
     collective_number = len(root.getElementsByTagName('collectiveInfo'))  # 获取collectiveInfo标签
-    adviser_number = len(root.getElementsByTagName('advisorInfo'))  # 获取advisorInfo标签
+    adviser_number = len(root.getElementsByTagName('adviserInfo'))  # 获取adviserInfo标签
     monitorMember_number = len(root.getElementsByTagName('monitorMemberInfo'))  # 获取monitorMemberInfo标签
     for one_member_info_label in member_info_labels:
         id_role_dict['id'].append(one_member_info_label.getAttribute('成员ID'))
