@@ -2,8 +2,8 @@ import numpy as np
 from other_tools import read_xml, write_xml
 import scipy.stats as stats
 
-dimension = 7
-task_num = 200
+dimension = 7 # 7个维度
+task_num = 200 # 200个基础task
 mu_sigma_list = [(50, 15.9),
                  (30, 3.9),
                  (49, 6.7),
@@ -28,5 +28,8 @@ for i in range(task_matrix.shape[1]):
     task_label.setAttribute("taskDetail",str(list(task_matrix[:,i])))
     tasks_label.appendChild(task_label)
 
+for j in range(task_matrix.shape[0]):
+    tasks_label.setAttribute("dimension-{}-mu".format(j),str(mu_sigma_list[j][0]))
+    tasks_label.setAttribute("dimension-{}-sigma".format(j), str(mu_sigma_list[j][1]))
 
 write_xml("Task.xml",task_dom)

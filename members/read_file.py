@@ -209,31 +209,31 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                     a_primitives_dict[label_id][key] = None
             try:
                 # 配置影响器
-                a_primitives_dict[label_id]['影响器'] = affector_dict[a_primitives_dict[label_id]['影响器']]
+                a_primitives_dict[label_id]['影响器ID'] = affector_dict[a_primitives_dict[label_id]['影响器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
 
             try:
                 # 配置决策器
-                a_primitives_dict[label_id]['决策器'] = decider_dict[a_primitives_dict[label_id]['决策器']]
+                a_primitives_dict[label_id]['决策器ID'] = decider_dict[a_primitives_dict[label_id]['决策器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
 
             try:
                 # 配置监控器
-                a_primitives_dict[label_id]['监控器'] = monitor_dict[a_primitives_dict[label_id]['监控器']]
+                a_primitives_dict[label_id]['监控器ID'] = monitor_dict[a_primitives_dict[label_id]['监控器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
 
             try:
                 # 配置执行器
-                a_primitives_dict[label_id]['执行器'] = executor_dict[a_primitives_dict[label_id]['执行器']]
+                a_primitives_dict[label_id]['执行器ID'] = executor_dict[a_primitives_dict[label_id]['执行器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
 
             try:
                 # 配置连接器
-                a_primitives_dict[label_id]['联接器'] = connector_dict[a_primitives_dict[label_id]['联接器']]
+                a_primitives_dict[label_id]['联接器ID'] = connector_dict[a_primitives_dict[label_id]['联接器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
             # # 初始化与原子型单元的连接
@@ -587,7 +587,7 @@ def read_component_methods(member_xml_dom: xml.dom.minidom.Document):
 def read_network(member_xml_dom: xml.dom.minidom.Document):
     network_labels = member_xml_dom.getElementsByTagName('networkStructure')
     for network_label in network_labels:
-        G = nx.DiGraph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
+        G = nx.Graph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
         edges_labels = network_label.getElementsByTagName('connectInfo')
         for edges_label in edges_labels:
             G.add_edge(edges_label.getAttribute('from'), edges_label.getAttribute('to'),

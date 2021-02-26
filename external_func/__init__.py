@@ -1,5 +1,5 @@
 external_func_file_path = ''  # 外部函数路径
-scripts_file_path = '.\external_file\script.xml'
+scripts_file_path = '.\external_module_file\script.xml'
 round_number = -1
 external_func_dom = None  # 外部函数xml的dom对象
 generation_method = ''  # 迭代方法，是否继承，True为继承，False为不继承

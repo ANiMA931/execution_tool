@@ -1,6 +1,7 @@
 import xml.dom.minidom
 import os
 import shutil
+import math
 from random import random
 
 
@@ -56,6 +57,12 @@ def shatter_number(upper, length):
     for i in range(len(r)):
         r[i] *= a_s
     return r, sum(r)
+
+
+def my_softMax(num_list):
+    num_list_exp = [math.exp(i) for i in num_list]
+    sum_num_list_exp = sum(num_list_exp)
+    return [round(i / sum_num_list_exp, 3) for i in num_list_exp]
 
 
 def object2dict(obj):

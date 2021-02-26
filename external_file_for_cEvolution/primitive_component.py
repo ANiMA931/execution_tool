@@ -1,5 +1,8 @@
+import sys
 import members
 import external_func
+
+
 def affector_method(global_dict, self_dict):
     """
     影响器外部函数
@@ -7,6 +10,7 @@ def affector_method(global_dict, self_dict):
     :param self_dict:
     :return:
     """
+    adv_net=members.network_dict['net-p2m']
     pass
 
 

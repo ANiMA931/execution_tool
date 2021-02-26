@@ -13,7 +13,7 @@
       <memberMetaModelFilePath>noID</memberMetaModelFilePath>
     </memberMetaModelDocument>
     <memberModelDocument>
-      <memberModelFilePath>F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution\ceMemberXml_C.xml</memberModelFilePath>
+      <memberModelFilePath>F:/pythonCode/PycharmProjects/execution_tool/external_file_for_cEvolution/ceMemberXml_C.xml</memberModelFilePath>
     </memberModelDocument>
   </GenerationMethod>
   <RoundMethod>
@@ -37,13 +37,13 @@
     </roundMethodDefinition>
   </RoundMethod>
   <GlobalAttribute><!-- 需要对设置的全局属性给一个初始值 -->
-    <GlobalAttributeRecursionMethod aName="attr1" init="0.48" type="double" ID="j6y" fName="global_attribute_1" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib" valueRange="{&lt;字符&gt;}">
-      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
+        <GlobalAttributeRecursionMethod aName="attr2" init="0.75" type="double" ID="j6y" fName="global_attribute_2" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}"/>
       <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
       <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
     </GlobalAttributeRecursionMethod>
-    <GlobalAttributeRecursionMethod aName="attr2" init="0.75" type="double" ID="j6y" fName="global_attribute_2" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib">
-      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}"/>
+    <GlobalAttributeRecursionMethod aName="attr1" init="0.48" type="double" ID="j6y" fName="global_attribute_1" path="F:\pythonCode\PycharmProjects\execution_tool\external_lib" valueRange="{&lt;字符&gt;}">
+      <attribute name="ele1" type="string" valueRange="{&lt;字符&gt;}" />
       <attribute name="ele2" type="string" valueRange="{&lt;字符&gt;}" />
       <attribute name="ele3" type="string" valueRange="{&lt;字符&gt;}" />
     </GlobalAttributeRecursionMethod>

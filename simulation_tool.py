@@ -22,7 +22,7 @@ from external_func.read_file import read_xml_to_module  # 单独引用一下读�
 from external_func.__scripts import read_scripts, run_script  # 单独引用一下脚本模块中读取与运行的函数
 
 import members  # 自己编写的成员模块
-from members.read_file import read_network, read_member  # 读取网络与成员所需的函数
+from members.read_file import read_network, read_member,read_component_methods  # 读取网络与成员所需的函数
 
 import pattren  # 自己编写的格局模块
 from pattren.read_file import read_pattern  # 读取格局所需的函数
@@ -315,6 +315,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             read_member(member_dom)
             read_network(member_dom)
             read_pattern(member_dom)
+            read_component_methods(member_dom)
 
             members.member_dom = member_dom
             members.member_file_path = self.members_xml_path_edit.text()
@@ -363,6 +364,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             read_member(member_dom)
             read_network(member_dom)
             read_pattern(member_dom)
+            read_component_methods(member_dom)
 
             members.member_dom = member_dom
             members.member_file_path = self.members_xml_path_edit.text()
@@ -428,7 +430,8 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
         :return:bool
         """
         # 设置保存路径，为本项目下的external_file文件夹
-        save_path = "external_file_for_cEvolution"
+
+        save_path = "external_module_file"
         # 设置文件名
         file_name = "script.xml"
         # 保存表格中的内容
@@ -510,6 +513,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             self.record_dir_path_edit.setText(dir_record_path)
             self.service_msg_log_text.append(
                 str(datetime.now()) + ': ' + 'Set record dictionary to: ' + dir_record_path)
+            # 需要有一个清空当前文件夹内容的操作
             # 需要初始化生成一个xml基础文件
             res = "<%s>""</%s>" % ("Result", "Result")
             record_dom = parseString(res)
