@@ -1,8 +1,8 @@
 from other_tools import read_xml, write_xml
 from random import shuffle, randint
 
-member_dom = read_xml(r"\external_file\ceMemberXml_C.xml")
-task_dom = read_xml(r"E:\external_file\Task.xml")
+member_dom = read_xml(r"ceMemberXml_C.xml")
+task_dom = read_xml(r"Task.xml")
 task_labels = task_dom.getElementsByTagName("task")
 decider_labels = member_dom.getElementsByTagName("deciderInfo")
 task_id_list = []

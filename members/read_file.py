@@ -575,7 +575,7 @@ def read_component_methods(member_xml_dom: xml.dom.minidom.Document):
             if method_path not in sys.path:
                 sys.path.append(method_path)
             the_method_module = __import__("monitorMember_component", fromlist=(component_label_name + "_method",))
-            members.monitor_method = eval('the_method_module.' + component_label_name + "_method")
+            members.monitorMember_method = eval('the_method_module.' + component_label_name + "_method")
         pass
 
     read_primitive_component_methods(member_xml_dom)

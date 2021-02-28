@@ -276,6 +276,8 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
         try:
             xml_definition_path = QtWidgets.QFileDialog.getOpenFileName(self, "选择仿真定义xml文件", "./",
                                                                         "XML Files (*.xml);;All Files (*)")
+            if xml_definition_path[0] == '' and xml_definition_path[0] == '':
+                return
             self.def_xml_path_edit.setText(xml_definition_path[0])
             definition_dom = read_xml(xml_definition_path[0])
             external_func.external_func_file_path = xml_definition_path[0]

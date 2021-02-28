@@ -65,6 +65,9 @@ def my_softMax(num_list):
     return [round(i / sum_num_list_exp, 3) for i in num_list_exp]
 
 
+
+
+
 def object2dict(obj):
     # convert object to a dict
     d = {}
