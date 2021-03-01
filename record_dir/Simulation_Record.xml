@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><Result Datetime="2021.03.01" DefinitionID="drer" EndMoment="2021-02-28 23:54:36.847253" ID="dere" Inherited="True" MetaMemberID="noID" RecordStepSize="100" StartMoment="2021-03-01 00:22:05.742096" TimeConsuming="0:00:25.165678" version="v1.0">
+<?xml version="1.0" ?><Result Datetime="2021.03.01" DefinitionID="drer" EndMoment="2021-02-28 23:54:36.847253" ID="dere" Inherited="True" MetaMemberID="noID" RecordStepSize="1" StartMoment="2021-03-01 21:23:49.270386" TimeConsuming="0:00:25.165678" version="v1.0">
     <Record attr1="9.47999999999999" attr2="12350.93999999995" attr3="7.990000000000013" attr4="15.959999999999937" attr5="9.619999999999958" attr6="66.20999999999998" round="100"/>
     <Record attr1="18.479999999999976" attr2="12356.939999999899" attr3="14.990000000000041" attr4="18.960000000000047" attr5="11.619999999999916" attr6="76.20999999999941" round="200"/>
     <Record attr1="27.47999999999996" attr2="12362.939999999848" attr3="21.99000000000007" attr4="21.96000000000016" attr5="13.619999999999873" attr6="86.20999999999884" round="300"/>

@@ -21,5 +21,6 @@ def read_pattern(xml_dom_for_pattern):
     behavior_labels=pattern_label.getElementsByTagName("behavior")
     for behavior_label in behavior_labels:
         pattren.pattern_graph.add_edge(u_of_edge=behavior_label.getAttribute("before"), v_of_edge=behavior_label.getAttribute("after"),
-                                       weight=behavior_label.getAttribute("weight"), comment=behavior_label.getAttribute("comment"))
+                                       weight=behavior_label.getAttribute("weight"), comment=behavior_label.getAttribute("comment"),
+                                       value=behavior_label.getAttribute("value"))
 

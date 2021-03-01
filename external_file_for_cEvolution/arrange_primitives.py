@@ -1,7 +1,7 @@
 from other_tools import read_xml, write_xml
 from external_file_for_cEvolution.create_task import dimension
 from scipy import stats
-from random import shuffle
+from random import shuffle, randint
 import numpy as np
 
 member_dom = read_xml(r"ceMemberXml_C.xml")
@@ -19,7 +19,8 @@ name_list = ["决策器ID", "影响器ID", "执行器ID", "联接器ID", "监控
 for the_iter, the_labels in zip(name_list, [decider_labels, affector_labels, executor_labels, connector_labels]):
     for the_label, primitive_label in zip(the_labels, primitive_labels):
         primitive_label.setAttribute(the_iter, the_label.getAttribute(the_iter))
-# 各种器安排完了,安排自律和自信
+
+# 各种器安排完了,安排能够依照概率分布来设置属性值的属性
 attribute_settings = [
     ("自律水平期望", "自律水平方差", "自律水平"),
     ("自信水平期望", "自信水平方差", "自信水平"),
@@ -37,7 +38,7 @@ for expectation, variance, attr_name in attribute_settings:
     for primitive_label, idx in zip(primitive_labels, range(len(the_list))):
         primitive_label.setAttribute(attr_name, str(the_list[idx]))
 
-# 安排能力向量和学习率向量
+# 安排能力向量和学习率向量这一类向量变量
 ability_matrix = np.zeros((dimension, len(primitive_labels)))
 learn_matrix = np.zeros((dimension, len(primitive_labels)))
 learn_mu_sigma_list = [(0.2, 0.07),
@@ -71,4 +72,27 @@ for a_mu, a_sigma in ability_mu_sigma_list:
 for primitive_label, idx in zip(primitive_labels, range(len(primitive_labels))):
     primitive_label.setAttribute("能力向量", str(list(ability_matrix[:, idx])))
     primitive_label.setAttribute("学习率向量", str(list(learn_matrix[:, idx])))
+
+# 安排格局上的初始点
+# 获取格局初始点
+init_position_list = []
+position_labels = member_dom.getElementsByTagName("position")
+for position_label in position_labels:
+    position_type = position_label.getAttribute('type')
+    if position_type == "start":
+        init_position_list.append(position_label.getAttribute('pID'))
+
+the_len=init_position_list.__len__()
+for primitive_label in primitive_labels:
+    if the_len==1:
+        primitive_label.setAttribute("init_position", init_position_list[0])
+        primitive_label.setAttribute("current_position", init_position_list[0])
+    elif the_len>1:
+        primitive_label.setAttribute("init_position", init_position_list[randint(0, the_len)])
+    else:
+        try:
+            pass
+        except ValueError:
+            raise("pattern have no init position")
+
 write_xml(r"ceMemberXml_C.xml", member_dom)
