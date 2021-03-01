@@ -32,6 +32,7 @@ def task_traversal(p_dict):
         # 计算与本体相连的其他的p_dict的时间
         the_node = p2p_net[p_dict['原子型成员ID']]
         next_p_list = the_node._atlas.keys()
+        next_p_list = list(set(next_p_list) - set(task_list[idx]['past_list']))
         for next_p in next_p_list:
             if next_p not in task_list[idx]['past_list']:
                 time = get_work_time(one_task, members.primitive_dict[next_p])
@@ -45,22 +46,29 @@ def task_traversal(p_dict):
             p_dict['任务列表'].append(one_task)
         else:
             task_list[idx]['past_list'].remove(target['原子型成员ID'])
-            if task_list[idx] not in target['决策器ID']['任务ID集合'] and not:
+            if task_list[idx] not in target['决策器ID']['任务ID集合']:
                 target['决策器ID']['任务ID集合'].append(task_list[idx])
+    task_list.clear()
     pass
 
 
 def restore(a_p_dict):
     a_p_dict['耗时'] = 0
     a_p_dict['收益总和'] = 0
-    a_p_dict['决策器ID']['任务ID集合'] = a_p_dict['初始任务列表']
+    a_p_dict['决策器ID']['任务ID集合'] = a_p_dict['初始任务列表'].copy()
     a_p_dict['任务列表'].clear()
 
 
 def p1(global_dict):
     for p_dict in members.primitive_dict.values():
         restore(p_dict)
+        # 从这一步开始，就要开始走流程了
     for p_dict in members.primitive_dict.values():
+        tasks = p_dict['决策器ID']['任务ID集合']
+        for task in tasks:
+            # 这个地方要写递归
+            # 从影响器，到决策器，再到执行器，再到算时间和
+            pass
         task_traversal(p_dict)
     # 计算任务耗时
 

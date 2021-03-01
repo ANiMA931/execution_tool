@@ -10,7 +10,7 @@ def read_pattern(xml_dom_for_pattern):
     """
     pattern_label = xml_dom_for_pattern.getElementsByTagName("pattern")[0]
     pattern_comment_info = pattern_label.getElementsByTagName("commonInformation")[0]
-    pattren.pattern_graph = nx.Graph(ID=pattern_comment_info.getAttribute("ID"),
+    pattren.pattern_graph = nx.DiGraph(ID=pattern_comment_info.getAttribute("ID"),
                                      name=pattern_comment_info.getAttribute("name"))
     #添加格局节点信息
     node_labels = pattern_label.getElementsByTagName("position")

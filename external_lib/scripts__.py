@@ -51,4 +51,4 @@ def evolution_init(global_dict):
         for ti_id in a_p_dict['决策器ID']['任务ID集合']:
             true_id_list.append(task_dict[ti_id])
         a_p_dict['决策器ID']['任务ID集合']=true_id_list
-        a_p_dict.update({'初始任务列表': true_id_list})
+        a_p_dict.update({'初始任务列表': true_id_list.copy()})
