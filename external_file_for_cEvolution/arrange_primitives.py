@@ -24,7 +24,8 @@ for the_iter, the_labels in zip(name_list, [decider_labels, affector_labels, exe
 attribute_settings = [
     ("自律水平期望", "自律水平方差", "自律水平"),
     ("自信水平期望", "自信水平方差", "自信水平"),
-    ("突变率期望", "突变率方差", "突变率"),
+    ("自退化率期望", "自退化率方差", "自退化率"),
+    ("起始学习期望","起始学习方差","起始学习时间"),
     ("学习时间期望", "学习时间方差", "学习时间"),
     ("上限时间期望", "上限时间方差", "上限时间"),
 ]
@@ -44,9 +45,9 @@ learn_matrix = np.zeros((dimension, len(primitive_labels)))
 learn_mu_sigma_list = [(0.2, 0.07),
                        (0.3, 0.15),
                        (0.16, 0.06),
-                       (0.59, 0.25),
+                       (0.29, 0.12),
                        (0.45, 0.12),
-                       (0.54, 0.20),
+                       (0.34, 0.10),
                        (0.31, 0.12)]
 
 ability_mu_sigma_list = [(0.17, 0.08),
@@ -71,7 +72,8 @@ for a_mu, a_sigma in ability_mu_sigma_list:
 
 for primitive_label, idx in zip(primitive_labels, range(len(primitive_labels))):
     primitive_label.setAttribute("能力向量", str(list(ability_matrix[:, idx])))
-    primitive_label.setAttribute("学习率向量", str(list(learn_matrix[:, idx])))
+    primitive_label.setAttribute("学习向量", str(list(learn_matrix[:, idx])))
+    primitive_label.setAttribute("外部学习向量", str([0 for _ in range(dimension)]))
 
 # 安排格局上的初始点
 # 获取格局初始点

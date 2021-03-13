@@ -644,7 +644,7 @@
 </string>
        </property>
        <property name="text">
-        <string>F:/pythonCode/PycharmProjects/execution_tool/record_dir</string>
+        <string/>
        </property>
       </widget>
      </item>

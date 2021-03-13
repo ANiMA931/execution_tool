@@ -5,7 +5,6 @@ from random import random
 
 
 def p1(global_dict):
-    global_dict['attr2'] = 12345
     print(members.primitive_dict['memberID-0'])
 
 
@@ -35,12 +34,12 @@ def evolution_init(global_dict):
 
     for a_p_dict in members.primitive_dict.values():
         a_p_dict.update({'任务列表':[]})
+        a_p_dict.update({'学习列表':[]})
         a_p_dict.update({'耗时': 0})
         a_p_dict.update({'自退化率': random()})
         a_p_dict.update({'收益总和': 0})
         if a_p_dict['决策器ID'].__class__ is not str and a_p_dict['决策器ID']['任务ID集合'].__len__() != 0:
             if a_p_dict['决策器ID']['任务ID集合'][0].__class__ is not dict:
-
                 for task_label in task_labels:
                     a_task = Task(task_label)
                     a_task_dict = object2dict(a_task)

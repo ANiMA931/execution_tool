@@ -26,10 +26,10 @@ def write_xml(path, dom):
     :return:no return
     '''
     try:
-        with open(path, 'w', encoding='UTF-8') as fh:
+        with open(path, mode='w', encoding='UTF-8') as fh:
             dom.writexml(fh)
     except:
-        print("Dom write error.")
+        raise
 
 
 def copy_file(srcfile, target_path):  # 复制函数
@@ -71,8 +71,6 @@ def my_softMax(num_list):
 def object2dict(obj):
     # convert object to a dict
     d = {}
-    d['__class__'] = obj.__class__.__name__
-    d['__module__'] = obj.__module__
     d.update(obj.__dict__)
     return d
 

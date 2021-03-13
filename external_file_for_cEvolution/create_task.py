@@ -28,7 +28,7 @@ earn_list = []
 time_list = []
 attr_mu_sigma_list = [
     [60, 10, 'earn_list'],
-    [100,20,'time_list']
+    [600,100,'time_list']
 ]
 
 for earn_mu, earn_sigma, i in attr_mu_sigma_list:

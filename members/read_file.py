@@ -236,7 +236,7 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 a_primitives_dict[label_id]['联接器ID'] = connector_dict[a_primitives_dict[label_id]['联接器ID']]
             except KeyError:  # 有的内容是空，已经提前设置为None 了所以不用处理
                 pass
-            # # 初始化与原子型单元的连接
+            # # 初始化与原子型成员的连接
             # # a_primitives_dict[label_id].update({'conn_primitive': {}})
             # a_primitives_dict[label_id]['conn_primitive'] = {}
             # # 初始化与集合型单元的连接
@@ -270,7 +270,7 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                     an_advisers_dict[label_id][key] = value
                 except EOFError:
                     an_advisers_dict[label_id][key] = None
-            # 初始化与原子型单元的连接
+            # 初始化与原子型成员的连接
             # # an_advisers_dict[label_id].update({'conn_primitive': {}})
             # an_advisers_dict[label_id]['conn_primitive'] = {}
             # # 初始化与集合型单元的连接
@@ -305,7 +305,7 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                     a_monitorMembers_dict[label_id][key] = value
                 except EOFError:
                     a_monitorMembers_dict[label_id][key] = None
-            # # 初始化与原子型单元的连接
+            # # 初始化与原子型成员的连接
             # # a_monitorMembers_dict[label_id].update({'conn_primitive': {}})
             # a_monitorMembers_dict[label_id]['conn_primitive'] = {}
             # # 初始化与集合型单元的连接
@@ -462,7 +462,7 @@ def read_member(member_xml_dom: xml.dom.minidom.Document):
                 a_collective_dict[label_id]['联接器'] = connector_dict[a_collective_dict[label_id]['联接器']]
             except KeyError:
                 pass
-            # 初始化与原子型单元的连接
+            # 初始化与原子型成员的连接
             # # a_collective_dict[label_id].update({'conn_primitive': {}})
             # a_collective_dict[label_id]['conn_primitive'] = {}
             # # 初始化与集合型单元的连接
@@ -587,10 +587,13 @@ def read_component_methods(member_xml_dom: xml.dom.minidom.Document):
 def read_network(member_xml_dom: xml.dom.minidom.Document):
     network_labels = member_xml_dom.getElementsByTagName('networkStructure')
     for network_label in network_labels:
-        G = nx.Graph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
+        G = nx.DiGraph(TYPE=network_label.getAttribute('type'), ID=network_label.getAttribute('ID'))
         edges_labels = network_label.getElementsByTagName('connectInfo')
         for edges_label in edges_labels:
+            # 双向添加
             G.add_edge(edges_label.getAttribute('from'), edges_label.getAttribute('to'),
+                       strength=float(edges_label.getAttribute('strength')))
+            G.add_edge(edges_label.getAttribute('to'), edges_label.getAttribute('from'),
                        strength=float(edges_label.getAttribute('strength')))
         members.network_list.append(G)
         members.network_dict.update({network_label.getAttribute('ID'): G})
@@ -599,7 +602,7 @@ def read_network(member_xml_dom: xml.dom.minidom.Document):
 
 if __name__ == '__main__':
     from other_tools import read_xml
-    dom=read_xml(r"F:\pythonCode\PycharmProjects\execution_tool\external_file_for_cEvolution\ceMemberXml_C.xml")
+    dom=read_xml(r"E:\code\PycharmProjects\execution_tool\external_file_for_cEvolution\ceMemberXml_C.xml")
 
     read_component_methods(dom)
     input()

@@ -13,6 +13,8 @@ import os  # 需要的部分内容
 import traceback
 from time import sleep  # 测试可能需要的东西
 from datetime import datetime  # 基本的仿真时间
+from random import seed
+seed(9527)
 
 import xml.dom.minidom  # 系统使用的xml操作类
 from xml.dom.minidom import parseString  # 用于转换符合xml文件标准的字符串为dom对象
@@ -22,11 +24,10 @@ from external_func.read_file import read_xml_to_module  # 单独引用一下读�
 from external_func.__scripts import read_scripts, run_script  # 单独引用一下脚本模块中读取与运行的函数
 
 import members  # 自己编写的成员模块
-from members.read_file import read_network, read_member,read_component_methods  # 读取网络与成员所需的函数
+from members.read_file import read_network, read_member, read_component_methods  # 读取网络与成员所需的函数
 
 import pattren  # 自己编写的格局模块
 from pattren.read_file import read_pattern  # 读取格局所需的函数
-
 
 from other_tools import read_xml, write_xml, copy_file  # 读取与生成xml文件的方法
 from record_maker import save_member_round_record, save_global_attribute_record  # 生成每一轮仿真纵览信息和所有成员的细节信息
@@ -294,13 +295,13 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             self.MyThread.generation_upper = int(generation_label.firstChild.data)
             inherited_label = definition_dom.getElementsByTagName("inherited")[0]
             global inherited
-            if int(inherited_label.firstChild.data): # 如果继承数据
+            if int(inherited_label.firstChild.data):  # 如果继承数据
                 self.inherited_Edit.setText("True")
                 inherited = True
             else:
                 self.inherited_Edit.setText("False")
                 inherited = False
-                self.step_size_Edit.setText("1") # 如果不继承，则说明每一轮仿真都是从最初始状态开始的，那么步长将不存在意义
+                self.step_size_Edit.setText("1")  # 如果不继承，则说明每一轮仿真都是从最初始状态开始的，那么步长将不存在意义
                 self.step_size_Edit.setEnabled(False)
             # 根据这个路径来读取成员
             member_dom = read_xml(self.members_xml_path_edit.text())
@@ -419,10 +420,11 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             edge_labels = dict([((u, v,), format(d['strength'], '.2f'))
                                 for u, v, d in members.network_list[i].edges(data=True)])
             plt.figure(members.network_list[i].graph['ID'])
+            plt.title(members.network_list[i].graph['ID']+' network')
             pos = nx.spring_layout(members.network_list[i])
             nx.draw_networkx_edge_labels(members.network_list[i], pos, edge_labels=edge_labels)
-            nx.draw(members.network_list[i], pos=pos, node_size=1000, with_labels=True, font_weight='bold',
-                    edge_cmap=plt.cm.Reds)
+            nx.draw(members.network_list[i], pos=pos, node_size=200, with_labels=True, font_weight='bold',
+                    edge_cmap=plt.cm.Reds,font_size =9, font_color='g',node_color = 'c', edge_color = 'r')
             # plt.get_current_fig_manager().window.state('zoomed')
         pylab.show()
 
@@ -509,12 +511,18 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
         :return: no return
         """
         dir_record_path = QtWidgets.QFileDialog.getExistingDirectory(self, "选择仿真记录文件夹", os.getcwd())
+        now = datetime.now()
+        str_now = now.strftime("%Y-%m-%d %H-%M-%S")
         if dir_record_path == "":
-            self.service_msg_log_text.append(str(datetime.now()) + ': ' + 'Unselect record save path.')
+            self.service_msg_log_text.append(str_now + ': ' + 'Unselect record save path.')
         else:
-            self.record_dir_path_edit.setText(dir_record_path)
+            self.record_dir_path_edit.setText(
+                dir_record_path + "/" + str_now
+            )
             self.service_msg_log_text.append(
                 str(datetime.now()) + ': ' + 'Set record dictionary to: ' + dir_record_path)
+            if not os.path.exists(self.record_dir_path_edit.text()):
+                os.mkdir(self.record_dir_path_edit.text())
             # 需要有一个清空当前文件夹内容的操作
             # 需要初始化生成一个xml基础文件
             res = "<%s>""</%s>" % ("Result", "Result")
@@ -560,7 +568,7 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             save_member_round_record(self.record_dir_path_edit.text(), 0, self.global_dict,
                                      len(self.generation_Edit.text()))
             # 添加一个把脚本保存到仿真记录路径下的代码
-            copy_file("external_file_for_cEvolution/script.xml", self.record_dir_path_edit.text()+'/')
+            copy_file("external_file_for_cEvolution/script.xml", self.record_dir_path_edit.text() + '/')
             self.MyThread.start()
             self.service_msg_log_text.append(str(self.start_moment) + ": Simulation task started.")
 
@@ -620,6 +628,7 @@ def format_members_id_role(xml_dom: xml.dom.minidom.Document):
 
 
 if __name__ == '__main__':
+
     app = QtWidgets.QApplication(sys.argv)
     window = uf_Form(globals())
     window.setWindowTitle('众智网络仿真执行工具软件')
