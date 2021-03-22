@@ -21,7 +21,7 @@ for result_label, one_attribute_dict in zip(result_labels, a_list):
             else:
                 one_attribute_dict[key].append(eval(value))
 key_list = list(record.attributes.keys())
-for idx in range(1,len(key_list)-1):
+for idx in range(len(key_list)-1):
     plt.figure(idx)
     plt.plot(one_attribute_dict0[key_list[idx]], label='dynamic communication',color="blue", linewidth=1.5, linestyle="-")
     plt.plot(one_attribute_dict1[key_list[idx]], label='static communication',color="red", linewidth=1.5, linestyle="-")
@@ -31,8 +31,3 @@ for idx in range(1,len(key_list)-1):
     plt.xlabel('generation')
     plt.ylabel(key_list[idx])
     plt.show()
-    print()
-
-
-
-print()

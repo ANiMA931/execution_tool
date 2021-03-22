@@ -114,6 +114,7 @@ def executor_method(global_dict, self_dict, task):
         :return: 花费的时间
         """
         sum_t = 0
+
         task_detail_list = task['task_detail']
         p_ability = pri_dict['能力向量']
         for mission, ability in zip(task_detail_list, p_ability):
@@ -123,22 +124,38 @@ def executor_method(global_dict, self_dict, task):
 
     # 计算消耗的时间
     task['spend_time'] = get_work_time(task, self_dict)
-    if self_dict['耗时']+task['spend_time'] > self_dict['上限时间']:
+    if self_dict['耗时'] + task['spend_time'] > self_dict['上限时间']:
         task['executant'] = "None"
         global_dict['loss'] -= task['earn']
-        global_dict['late_count']+=1
+        global_dict['late_count'] += 1
         return
     else:
-    # 记录完成此任务的个体
+        # 记录完成此任务的个体
         task['executant'] = self_dict['原子型成员ID']
         # 如果在时限内完成了
         if task['spend_time'] <= task['time_limit']:
             task['e_flag'] = True
             self_dict['收益总和'] += task['earn']
+            CIQ_list = []
+            for i in range(len(task['task_detail'])):
+                if task['task_detail'][i] != 0:
+                    CIQ_item = self_dict['能力向量'][i] * self_dict['质量向量'][i] / task['task_detail'][i]
+                else:
+                    CIQ_item = 0
+                CIQ_list.append(CIQ_item)
+            self_dict['CIQ'] += sum(CIQ_list)
         else:
+            CIQ_list = []
+            for i in range(len(task['task_detail'])):
+                if task['task_detail'][i] != 0:
+                    CIQ_item = self_dict['能力向量'][i] * self_dict['质量向量'][i] / task['task_detail'][i]
+                else:
+                    CIQ_item = 0
+                CIQ_list.append(CIQ_item)
             self_dict['收益总和'] -= task['earn'] * 0.3
             global_dict['delay_loss'] += task['earn'] * 0.3
             global_dict['delay_count'] += 1
+            self_dict['CIQ'] += sum(CIQ_list)
         self_dict['任务列表'].append(task)
 
         self_dict['耗时'] += task['spend_time']
@@ -179,10 +196,9 @@ def connector_method(global_dict, self_dict):
     difference_list = [0 for _ in range(len(pri_rel_id_list))]
     for idx, diff in enumerate(difference_list):
         for i in range(len(self_dict['能力向量'])):
-            if members.primitive_dict[pri_rel_id_list[idx]]['能力向量'][i]>self_dict['能力向量'][i]:
-                difference_list[idx] += members.primitive_dict[pri_rel_id_list[idx]]['能力向量'][i]-self_dict['能力向量'][i]
+            if members.primitive_dict[pri_rel_id_list[idx]]['能力向量'][i] > self_dict['能力向量'][i]:
+                difference_list[idx] += members.primitive_dict[pri_rel_id_list[idx]]['能力向量'][i] - self_dict['能力向量'][i]
     rel_list = my_softMax(difference_list)
     for idx, id in enumerate(pri_rel_id_list):
         p2p_net[self_dict['原子型成员ID']][id]['strength'] = rel_list[idx]
-    print()
     pass

@@ -112,6 +112,9 @@ def learn(global_dict, p_dict):
         incremental = [tsl * rl for tsl, rl in zip(tmp_task_sum_list, learn_rate_list)]
         p_dict['能力向量'] = [(ab_part * 1000 + inc_part) / (1000 + inc_part) for ab_part, inc_part in
                           zip(p_dict['能力向量'], incremental)]
+        # 质量向量提升
+        p_dict['质量向量'] = [(q_part + inc_part) / (1 + inc_part) for q_part, inc_part in
+                          zip(p_dict['质量向量'], p_dict['学习向量'])]
 
 
 def cal_external_learn_vector(global_dict, p_dict):
@@ -133,6 +136,7 @@ def restore(global_dict, a_p_dict):
     """
     a_p_dict['耗时'] = 0
     a_p_dict['收益总和'] = 0
+    a_p_dict['CIQ'] = 0
     a_p_dict['决策器ID']['任务ID集合'] = a_p_dict['初始任务列表'].copy()
     a_p_dict['任务列表'].clear()
     a_p_dict['学习列表'].clear()

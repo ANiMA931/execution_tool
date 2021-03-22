@@ -36,6 +36,7 @@ def evolution_init(global_dict):
         a_p_dict.update({'任务列表':[]})
         a_p_dict.update({'学习列表':[]})
         a_p_dict.update({'耗时': 0})
+        a_p_dict.update({'CIQ': 0})
         a_p_dict.update({'自退化率': random()})
         a_p_dict.update({'收益总和': 0})
         if a_p_dict['决策器ID'].__class__ is not str and a_p_dict['决策器ID']['任务ID集合'].__len__() != 0:

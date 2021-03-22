@@ -1,7 +1,15 @@
 import numpy as np
 from other_tools import read_xml, write_xml
 import scipy.stats as stats
+import os
 
+my_file = 'Task.xml'  # 文件路径
+if os.path.exists(my_file):  # 如果文件存在
+    # 删除文件，可使用以下两种方法。
+    os.remove(my_file)  # 则删除
+    # os.unlink(my_file)
+else:
+    print('no such file:%s' % my_file)
 
 dimension = 7  # 7个维度
 task_num = 200  # 200个基础task
@@ -39,17 +47,18 @@ for earn_mu, earn_sigma, i in attr_mu_sigma_list:
         the_list.append(j)
 
 task_dom = read_xml("Task.xml")
-tasks_label = task_dom.getElementsByTagName("Tasks")[0]
+tasks_label = task_dom.createElement("Tasks")
+
 for i in range(task_matrix.shape[1]):
     task_label = task_dom.createElement("task")
     task_label.setAttribute("ID", "Task-" + str(i))
     task_label.setAttribute("taskDetail", str(list(task_matrix[:, i])))
     task_label.setAttribute("earn", str(earn_list[i]))
-    task_label.setAttribute("time_limit",str(time_list[i]))
+    task_label.setAttribute("time_limit", str(time_list[i]))
     tasks_label.appendChild(task_label)
 
 for j in range(task_matrix.shape[0]):
     tasks_label.setAttribute("dimension-{}-mu".format(j), str(mu_sigma_list[j][0]))
     tasks_label.setAttribute("dimension-{}-sigma".format(j), str(mu_sigma_list[j][1]))
-
+task_dom.appendChild(tasks_label)
 write_xml("Task.xml", task_dom)

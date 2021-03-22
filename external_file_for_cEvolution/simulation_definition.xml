@@ -6,7 +6,7 @@
         <version>fs</version>
         <modifyDate>2020-8-27</modifyDate>
         <author>d</author>
-        <simulationRoundNumber>1000</simulationRoundNumber>
+        <simulationRoundNumber>100</simulationRoundNumber>
         <note>d</note>
         <memberMetaModelDocument>
             <!-- 此处需要改为成员元模型ID,或者再加一个保存元模型ID的标签 -->
@@ -52,7 +52,7 @@
                                         path="E:/code/PycharmProjects/execution_tool/external_lib"/>
         <GlobalAttributeRecursionMethod aName="benefits" init="0" type="double" ID="6" fName="benefits_func"
                                         path="E:/code/PycharmProjects/execution_tool/external_lib"/>
-        <GlobalAttributeRecursionMethod aName="average_ability" init="[]" type="list" ID="6" fName="average_ability_func"
+        <GlobalAttributeRecursionMethod aName="CIQ" init="0" type="double" ID="6" fName="CIQ_calc_func"
                                         path="E:/code/PycharmProjects/execution_tool/external_lib"/>
     </GlobalAttribute>
 </drer>

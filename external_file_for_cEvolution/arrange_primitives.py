@@ -42,6 +42,7 @@ for expectation, variance, attr_name in attribute_settings:
 # 安排能力向量和学习率向量这一类向量变量
 ability_matrix = np.zeros((dimension, len(primitive_labels)))
 learn_matrix = np.zeros((dimension, len(primitive_labels)))
+quality_matrix = np.zeros((dimension, len(primitive_labels)))
 learn_mu_sigma_list = [(0.2, 0.07),
                        (0.3, 0.15),
                        (0.16, 0.06),
@@ -57,6 +58,15 @@ ability_mu_sigma_list = [(0.17, 0.08),
                          (0.35, 0.15),
                          (0.39, 0.12),
                          (0.48, 0.17)]
+
+quality_mu_sigma_list = [(0.77, 0.08),
+                         (0.69, 0.2),
+                         (0.72, 0.05),
+                         (0.80, 0.02),
+                         (0.75, 0.05),
+                         (0.79, 0.02),
+                         (0.68, 0.07)]
+
 count = 0
 for l_mu, l_sigma in learn_mu_sigma_list:
     l_lower, l_upper = l_mu - 2 * l_sigma, l_mu + 2 * l_sigma  # 截断在[μ-2σ, μ+2σ]
@@ -69,10 +79,17 @@ for a_mu, a_sigma in ability_mu_sigma_list:
     Y = stats.truncnorm((a_lower - a_mu) / a_sigma, (a_upper - a_mu) / a_sigma, loc=a_mu, scale=a_sigma)
     ability_matrix[count, :] = Y.rvs(len(primitive_labels))
     count += 1
+count = 0
+for q_mu, q_sigma in quality_mu_sigma_list:
+    q_lower, q_upper = q_mu - 2 * q_sigma, q_mu + 2 * q_sigma
+    Y = stats.truncnorm((q_lower - q_mu) / q_sigma, (q_upper - q_mu) / q_sigma, loc=q_mu, scale=q_sigma)
+    quality_matrix[count, :] = Y.rvs(len(primitive_labels))
+    count += 1
 
 for primitive_label, idx in zip(primitive_labels, range(len(primitive_labels))):
     primitive_label.setAttribute("能力向量", str(list(ability_matrix[:, idx])))
     primitive_label.setAttribute("学习向量", str(list(learn_matrix[:, idx])))
+    primitive_label.setAttribute("质量向量", str(list(quality_matrix[:, idx])))
     primitive_label.setAttribute("外部学习向量", str([0 for _ in range(dimension)]))
 
 # 安排格局上的初始点

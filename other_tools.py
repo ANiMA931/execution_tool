@@ -14,6 +14,8 @@ def read_xml(in_path) -> xml.dom.minidom.Document:
     try:
         dom = xml.dom.minidom.parse(in_path)
         return dom
+    except FileNotFoundError:
+        return xml.dom.minidom.Document()
     except:
         print("XML file path %s error.\n" % in_path)
 

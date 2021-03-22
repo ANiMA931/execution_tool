@@ -584,7 +584,8 @@ class uf_Form(QtWidgets.QWidget, Ui_Form):
             reply = QtWidgets.QMessageBox.question(self, "Terminate Simulation",
                                                    "Are you sure you want to teminate this simulation?",
                                                    QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-            if reply:
+
+            if reply == QtWidgets.QMessageBox.Yes:
                 self.MyThread.terminate()
                 self.end_moment = datetime.now()
                 self.service_msg_log_text.append(str(self.end_moment) + ": Simulation task terminated.")

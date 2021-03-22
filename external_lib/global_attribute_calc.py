@@ -58,8 +58,15 @@ def average_ability_func(global_dict):
 
 
 def benefits_func(global_dict):
-    benefits=0
+    benefits = 0
     for p_dict in members.primitive_dict.values():
         benefits += p_dict['收益总和']
-    global_dict['benefits']=benefits
+    global_dict['benefits'] = benefits
     print("in global attribute method {}, benefits={}".format(sys._getframe().f_code.co_name, global_dict['benefits']))
+
+
+def CIQ_calc_func(global_dict):
+    the_CIQ=0
+    for p_dict in members.primitive_dict.values():
+        the_CIQ += p_dict['CIQ']
+    global_dict['CIQ'] = the_CIQ
